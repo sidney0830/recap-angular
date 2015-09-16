@@ -1,0 +1,117 @@
+<div id="alliance_search">
+    <h1>Alliance Search</h1>
+
+  <form action="" method="GET">
+
+    <div class="onediv">
+      <label for="company">Company:  </label>
+      <input type="text" id="company" name="company">
+      <input type="hidden" name="query_page" value="alliance">
+
+      <br><br>
+
+      <label for="contract_text">Subject Text:  </label>
+      <input type="text" id="contract_text" name="contract_text">
+    </div>
+
+    <div class="onediv">
+    <label>Parties: </label>
+    <select multiple id="parties" ng-model="data.select_alliance_parties" ng-options="t as t for t in data.alliance_parties"></select>
+    <br><br>
+
+    <label>Alliance Type: </label>
+    <select multiple  id="alliance_type" ng-model="data.select_alliance_type" ng-options="t as t for t in data.alliance_types"></select>
+    <br><br>
+
+    <label>Technology: </label>
+    <select multiple  id="alliance_technology" ng-model="data.select_alliance_technologies" ng-options="t as t for t in data.alliance_technologies"></select>
+    <br><br>
+
+     <label>Stage: </label>
+    <select id="alliance_stage" ng-model="data.select_alliance_stages" ng-options="t as t for t in data.alliance_stages"></select>
+  </div>
+    <br><br>
+     <!-- checkbox -->
+    <div class="onediv">
+      <input type="checkbox" name="checkbox_sth" value="filed_contracts"> Filed Contracts</input>
+      <input type="checkbox" name="checkbox_sth" value="deal_snapshot"> Deal Snapshot</input>
+      <input type="checkbox" name="checkbox_sth" value="financials_disclosed"> Financials Disclosed</input><br><br>
+    </div>
+    <!-- Agreement Date:  -->
+  <div class="onediv">
+    <div class="manydiv">
+    <label>Agreement Date:  </label>
+      <ul><label for="from"> From </label>
+      <input type="date" name="from" id="from" ></input></ul>
+      <ul><label for="to"> To  </label>
+      <input type="date" name="to" id="to"></input></ul>
+    </div>
+
+    <div class="manydiv">
+      <label>Deal Size:  </label>
+        <ul><label for="greater"> Greater than $ </label>
+        <input type="number" > M</input></ul>
+        <ul><label for="less"> Less than $</label>
+        <input type="number"> M</input></ul>
+    </div>
+
+    <div class="manydiv">
+      <label>Upfront Payment:  </label>
+        <ul><label for="greater"> Greater than $ </label>
+        <input type="number" > M</input></ul>
+        <ul><label for="less"> Less than $</label>
+        <input type="number"> M</input></ul>
+    </div>
+
+    <div class="manydiv">
+      <label>Poyalty Rate:  </label>
+        <ul><label for="greater"> Greater than </label>
+        <input type="number" > %</input></ul>
+        <ul><label for="less"> Less than </label>
+        <input type="number"> %</input></ul>
+    </div>
+
+    <div class="manydiv">
+      <label>Equity:  </label>
+        <ul><label for="greater"> Greater than $</label>
+        <input type="number" > M</input></ul>
+        <ul><label for="less"> Less than $</label>
+        <input type="number"> M</input></ul>
+    </div>
+
+    <div class="manydiv">
+      <label>R&D Payment:  </label>
+        <ul><label for="greater"> Greater than $</label>
+        <input type="number" > M</input></ul>
+        <ul><label for="less"> Less than $</label>
+        <input type="number"> M</input></ul>
+    </div>
+
+    <div class="manydiv">
+      <label>Total Milestone Payment:  </label>
+        <ul><label for="greater"> Greater than $</label>
+        <input type="number" > M</input></ul>
+        <ul><label for="less"> Less than $</label>
+        <input type="number"> M</input></ul>
+    </div>
+
+    <div class="manydiv">
+      <label>Profit Split:  </label>
+        <ul><label for="greater"> Greater than </label>
+        <input type="number" > %</input></ul>
+        <ul><label for="less"> Less than </label>
+        <input type="number"> %</input></ul>
+    </div>
+  </div>
+
+
+    <!-- submit button -->
+    <br>
+
+    <div align="center">
+      <input type="submit" value="Submit">
+    </div>
+
+  </form>
+
+</div>

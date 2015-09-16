@@ -1,0 +1,57 @@
+
+<div id="contract_search">
+    <h1>Contract Search</h1>
+
+    <!-- <img src="assets/CircularProgressAnimation.gif" ng-show="data.in_progressing"/> -->
+
+    <div ng-class="{true: 'loader', false: ''}[data.in_progressing]"></div>
+
+    <form ng-submit="submit()">
+        <div class="onediv">
+          <label for="company">Company:  </label>
+          <input type="text" id="company" ng-model="data.company">
+          <input type="hidden" name="query_page" value="contract">
+
+          <br><br>
+
+          <label for="contract_text">Contract text:  </label>
+          <input type="text" id="contract_text" ng-model="data.contract_text">
+        </div>
+
+        <div class="onediv">
+            <label for="parties">Parties:  </label>
+            <select multiple id="parties" ng-model="data.select_contact_parties" ng-options="t as t for t in data.contract_parties"></select>
+            {{data.select_contact_parties}}
+            <br><br>
+
+            <label for="contract_type">Contract Type:  </label>
+            <select multiple  id="contract_type" ng-model="data.select_contract_type" ng-options="t as t for t in data.contract_types"></select>
+            {{data.select_contract_type}}
+        </div>
+        <br><br>
+
+        <div class="onediv">
+            <label>Contract Date:   </label>
+            <ul><label for="from" id>From</label>
+            <input type="date" id="from" ng-model="data.from"></input></ul>
+            <ul><label for="until">Until</label>
+            <input type="date" id="until"  ng-model="data.until"></input></ul>
+        </div>
+
+        <div align="center">
+            <input type="submit" value="Submit">
+        <div>
+    </form>
+
+    <hr>
+
+    <table border=1>
+        <tr>
+            <th ng-repeat="(key, val) in data.contract_result[0]">{{key}}</th>
+        </tr>
+        <tr ng-repeat="item in data.contract_result">
+            <td ng-repeat="(key, value) in item">{{value}}</td>
+        </tr>
+    </table>
+
+</div>
