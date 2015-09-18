@@ -20,18 +20,30 @@ if (!empty($_GET)) {
     $has_where = true;
   }
 
-  if ($contract_type != null) {
-    $query = ($has_where == false ? $query."WHERE Contract_Type LIKE '%$contract_type%' " : $query."AND Contract_Type LIKE '%$contract_type%' ");
-    $has_where = true;
+  if ($contract_type != null && count($contract_type) > 0) {
+      $value = array_shift($contract_type);
+      $query = ($has_where == false ? $query."WHERE (Contract_Type LIKE '%$value%'" : $query."AND (Contract_Type LIKE '%$value%'");
+      $has_where = true;
+
+      foreach($contract_type as $value) {
+        $query = $query." OR Contract_Type LIKE '%$value%'";
+      }
+      $query = $query.') ';
   }
 
-  if ($parties != null) {
-    $query = ($has_where == false ? $query."WHERE Parties LIKE '%$parties%' " : $query."AND Parties LIKE '%$parties%' ");
-    $has_where = true;
+  if ($parties != null && count($parties) > 0) {
+      $value = array_shift($parties);
+      $query = ($has_where == false ? $query."WHERE (Parties LIKE '%$value%' " : $query."AND (Parties LIKE '%$value%'");
+      $has_where = true;
+
+      foreach($parties as $value) {
+          $query = $query." OR Parties LIKE '%$value%'";
+      }
+      $query = $query.') ';
   }
 
-  $query = "SELECT * FROM contract LIMIT 1000";
 
+  // echo $query;
 
   $result = mysql_query($query) or die('MySQL query error');
   $is_first = true;
@@ -44,5 +56,6 @@ if (!empty($_GET)) {
 
 }
 ?>
+
 
 

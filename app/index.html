@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>NCTU Recap</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -18,22 +18,27 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <ul class="menu tabs_header">
-    <li class="tab_header_item first_tab tab_selected"><a href="#/contract" class='alliance_search-tab_header'>Contract Search</a></li>
-    <li class="tab_header_item"><a href="#/alliance" class="contract_search-tab_header">Alliance Search</a></li>
-  </ul>
+    <ul class="menu tabs_header">
+      <li class="tab_header_item first_tab tab_selected"><a href="#/contract" class='alliance_search-tab_header'>Contract Search</a></li>
+      <li class="tab_header_item"><a href="#/alliance" class="contract_search-tab_header">Alliance Search</a></li>
+    </ul>
+
+  <div class="tabs_holder">
+
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-
+  <div class="content_holder">
   <div ng-view></div>
+  </div>
 
   <!-- <div>Angular seed app: v<span app-version></span></div> -->
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  </div>
 
   <script src="lib/jquery-1.10.2.min.js"></script>
 
@@ -45,6 +50,16 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+  <script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script>
+
+  <script type="text/javascript">
+  $('.tabs_holder').skinableTabs({
+      effect: 'basic_display',
+      skin: 'skin7',
+      position: 'top'
+    });
+</script>
+
 
 </body>
 </html>

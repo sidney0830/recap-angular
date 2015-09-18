@@ -63,7 +63,7 @@ h3 {display : inline}
 }
 input[type="number"]
 {
-   width:63px;
+   /*width:63px;*/
 }
 input[type=submit] {
   width:60%;
