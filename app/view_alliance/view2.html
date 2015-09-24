@@ -1,17 +1,16 @@
 <div id="alliance_search">
     <h1>Alliance Search</h1>
 
-  <form action="" method="GET">
+  <form ng-submit="submit()">
 
     <div class="onediv">
       <label for="company">Company:  </label>
-      <input type="text" id="company" name="company">
-      <input type="hidden" name="query_page" value="alliance">
+      <input type="text" id="company" ng-model="data.company">
 
       <br><br>
 
-      <label for="contract_text">Subject Text:  </label>
-      <input type="text" id="contract_text" name="contract_text">
+      <label for="subject_text">Subject Text:  </label>
+      <input type="text" id="subject_text" ng-model="subject_text">
     </div>
 
     <div class="onediv">
@@ -20,7 +19,7 @@
     <br><br>
 
     <label>Alliance Type: </label>
-    <select multiple  id="alliance_type" ng-model="data.select_alliance_type" ng-options="t as t for t in data.alliance_types"></select>
+    <select multiple  id="alliance_type" ng-model="data.select_alliance_types" ng-options="t as t for t in data.alliance_types"></select>
     <br><br>
 
     <label>Technology: </label>
@@ -37,20 +36,27 @@
       <input type="checkbox" name="checkbox_sth" value="deal_snapshot"> Deal Snapshot</input>
       <input type="checkbox" name="checkbox_sth" value="financials_disclosed"> Financials Disclosed</input><br><br>
     </div>
+
     <!-- Agreement Date:  -->
   <div class="onediv">
     <div class="manydiv">
     <label>Agreement Date:  </label>
-      <ul><label for="from"> From </label>
-      <input type="date" name="from" id="from" ></input></ul>
-      <ul><label for="to"> To  </label>
-      <input type="date" name="to" id="to"></input></ul>
+      <ul>
+        <label for="from"> From </label><br>
+        <input type="date" id="from" ng-model='from'></input>
+      </ul>
+      <ul>
+        <label for="to"> To </label><br>
+        <input type="date" id="to" ng-model='to'></input>
+      </ul>
     </div>
 
     <div class="manydiv">
       <label>Deal Size:  </label>
-        <ul><label for="greater"> Greater than $ </label>
-        <input type="number" > M</input></ul>
+        <ul>
+          <label for="greater"> Greater than $ </label>
+          <input type="number" id="greater"> M</input>
+        </ul>
         <ul><label for="less"> Less than $</label>
         <input type="number"> M</input></ul>
     </div>

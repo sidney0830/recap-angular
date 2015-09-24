@@ -7,7 +7,7 @@ if (!empty($_GET)) {
 
   $from = $_GET['from'];
   $until = $_GET['until'];
-  $contract_type = $_GET['select_contract_type'];
+  $contract_type = $_GET['select_contract_types'];
   $contract_text = $_GET['contract_text'];
   $parties = $_GET['select_contact_parties'];
 

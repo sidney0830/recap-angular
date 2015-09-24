@@ -24,7 +24,7 @@ angular.module('myApp.view1', ['ngRoute'])
         contract_types: ['Acquisition', 'Asset Purchase', 'Assignment', 'Co-Development', 'Co-Market', 'Co-Promotion', 'Collaboration', 'Cross-license', 'Development', 'Distribution', 'Equity', 'Joint Venture', 'Letter of Intent', 'License', 'Loan', 'Manufacturing', 'Marketing', 'Merger', 'Option', 'Research', 'Security', 'Settlement', 'Sublicense', 'Supply', 'Termination', 'Warrant'],
         contract_parties: ["Pharma-Biotech" ,"Biotech-Biotech" ,"Pharma-Pharma" ,"University-Biotech" ,"Non-Medical"],
         select_contact_parties: "",
-        select_contract_type: "",
+        select_contract_types: "",
         company: "",
         contract_text: "",
         from: "",

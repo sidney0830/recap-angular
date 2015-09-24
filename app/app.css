@@ -80,6 +80,10 @@ input[type="submit"]:hover{
     border: 2px solid #999;background:#aaa;color:#444;
     font:#fff;
 }
+input[type="date"]
+{
+  line-height: normal;
+}
 
 
 .loader {

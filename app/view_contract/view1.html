@@ -10,7 +10,6 @@
         <div class="onediv">
           <label for="company">Company:  </label>
           <input type="text" id="company" ng-model="data.company">
-          <input type="hidden" name="query_page" value="contract">
 
           <br><br>
 
@@ -25,7 +24,7 @@
             <br><br>
 
             <label for="contract_type">Contract Type:  </label>
-            <select multiple  id="contract_type" ng-model="data.select_contract_type" ng-options="t as t for t in data.contract_types"></select>
+            <select multiple  id="contract_type" ng-model="data.select_contract_types" ng-options="t as t for t in data.contract_types"></select>
             {{data.select_contract_type}}
         </div>
         <br><br>
