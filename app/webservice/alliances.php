@@ -3,6 +3,7 @@
 if (!empty($_GET)) {
   mysql_connect('140.113.117.125','root','root');
   mysql_select_db('recap');
+  mysql_set_charset('utf8');
 
   $from = $_GET['from'];
   $to = $_GET['to'];

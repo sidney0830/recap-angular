@@ -1,14 +1,18 @@
 <?php
+ini_set('display_errors',1);
+ini_set('memory_limit', '-1');
+set_time_limit(0);
+error_reporting(E_ERROR | E_PARSE);
+date_default_timezone_set('Asia/Taipei');
 
 header('Content-Type: application/json; charset=utf-8');
 
-date_default_timezone_set('Asia/Taipe');
-error_reporting(E_ERROR | E_PARSE);
 
 
 if (!empty($_GET)) {
   mysql_connect('140.113.117.125','root','root');
   mysql_select_db('recap');
+  mysql_set_charset('utf8');
 
   $from = $_GET['from'];
   $until = $_GET['until'];
@@ -21,9 +25,8 @@ if (!empty($_GET)) {
   $query = "SELECT * FROM contract ";
 
   if (($from != null) && ($until != null)) {
-    !$from = date('Y-m-d', strtotime($from));
-    !$until = date('Y-m-d', strtotime($until));
-    $new_date_format = date('Y-m-d', $timestamp);
+    $from = date('Y-m-d', strtotime($from));
+    $until = date('Y-m-d', strtotime($until));
     $query = ($has_where == false ? $query."WHERE Contract_Date BETWEEN '$from' AND '$until' " : $query."AND Contract_Date BETWEEN '$from' AND '$until' ");
     $has_where = true;
   }
@@ -50,9 +53,6 @@ if (!empty($_GET)) {
       $query = $query.') ';
   }
 
-  $query = "$query LIMIT 5000";
-
-
   // echo $query;
 
   $result = mysql_query($query) or die('MySQL query error');
@@ -63,9 +63,7 @@ if (!empty($_GET)) {
   array_pop($rows);
 
   echo json_encode($rows);
-
-  echo count($rows);
-  // echo 'hi';
+  // echo json_last_error(); //debug use
 
 
 }
