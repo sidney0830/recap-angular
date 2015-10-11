@@ -40,7 +40,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
         console.log('send reqeust')
 
-        $scope.data.in_progressing = true;
+        $scope.data.in_progressing = true
         console.log($scope.data)
         console.log('webservice/contracts.php?' + $.param($scope.data))
 

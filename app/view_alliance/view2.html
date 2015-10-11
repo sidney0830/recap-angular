@@ -1,5 +1,7 @@
 <div id="alliance_search">
-    <h1>Alliance Search</h1>
+  <h1>Alliance Search</h1>
+
+  <div ng-class="{true: 'loader', false: ''}[data.in_progressing]"></div>
 
   <form ng-submit="submit()">
 
@@ -9,25 +11,25 @@
 
       <br><br>
 
-      <label for="subject_text">Subject Text:  </label>
-      <input type="text" id="subject_text" ng-model="subject_text">
+      <label for="subject">Subject:  </label>
+      <input type="text" id="subject" ng-model="data.subject">
     </div>
 
     <div class="onediv">
     <label>Parties: </label>
-    <select multiple id="parties" ng-model="data.select_alliance_parties" ng-options="t as t for t in data.alliance_parties"></select>
+    <select multiple id="parties" ng-model="data.select_alliance_parties" ng-options="t as t for t in input.alliance_parties"></select>
     <br><br>
 
     <label>Alliance Type: </label>
-    <select multiple  id="alliance_type" ng-model="data.select_alliance_types" ng-options="t as t for t in data.alliance_types"></select>
+    <select multiple  id="alliance_type" ng-model="data.select_alliance_types" ng-options="t as t for t in input.alliance_types"></select>
     <br><br>
 
     <label>Technology: </label>
-    <select multiple  id="alliance_technology" ng-model="data.select_alliance_technologies" ng-options="t as t for t in data.alliance_technologies"></select>
+    <select multiple  id="alliance_technology" ng-model="data.select_alliance_technologies" ng-options="t as t for t in input.alliance_technologies"></select>
     <br><br>
 
      <label>Stage: </label>
-    <select id="alliance_stage" ng-model="data.select_alliance_stages" ng-options="t as t for t in data.alliance_stages"></select>
+    <select multiple id="alliance_stage" ng-model="data.select_alliance_stages" ng-options="t as t for t in input.alliance_stages"></select>
   </div>
     <br><br>
      <!-- checkbox -->
@@ -42,71 +44,71 @@
     <div class="manydiv">
     <label>Agreement Date:  </label>
       <ul>
-        <label for="from"> From </label><br>
-        <input type="date" id="from" ng-model='from'></input>
+        <label for="agreement_from"> From </label><br>
+        <input type="date" id="agreement_from" ng-model='data.agreement_from'></input>
       </ul>
       <ul>
-        <label for="to"> To </label><br>
-        <input type="date" id="to" ng-model='to'></input>
+        <label for="agreement_to"> To </label><br>
+        <input type="date" id="agreement_to" ng-model='data.agreement_to'></input>
       </ul>
     </div>
 
     <div class="manydiv">
       <label>Deal Size:  </label>
         <ul>
-          <label for="greater"> Greater than $ </label>
-          <input type="number" id="greater"> M</input>
+          <label for="deal_size_greater"> Greater than $ </label>
+          <input type="number" id="deal_size_greater" ng-model="data.deal_size_greater"> M</input>
         </ul>
-        <ul><label for="less"> Less than $</label>
-        <input type="number"> M</input></ul>
+        <ul><label for="deal_size_less"> Less than $</label>
+        <input type="number" id="deal_size_less" ng-model="data.deal_size_less"> M</input></ul>
     </div>
 
     <div class="manydiv">
       <label>Upfront Payment:  </label>
-        <ul><label for="greater"> Greater than $ </label>
-        <input type="number" > M</input></ul>
-        <ul><label for="less"> Less than $</label>
-        <input type="number"> M</input></ul>
+        <ul><label for="upfront_greater"> Greater than $ </label>
+        <input type="number" id="upfront_greater" ng-model="data.upfront_greater"> M</input></ul>
+        <ul><label for="upfront_less"> Less than $</label>
+        <input type="number" id="upfront_less" ng-model="data.upfront_less"> M</input></ul>
     </div>
 
     <div class="manydiv">
-      <label>Poyalty Rate:  </label>
-        <ul><label for="greater"> Greater than </label>
-        <input type="number" > %</input></ul>
-        <ul><label for="less"> Less than </label>
-        <input type="number"> %</input></ul>
+      <label>Royalty Rate:  </label>
+        <ul><label for="royalty_greater"> Greater than </label>
+        <input type="number" id="royalty_greater" ng-model="data.royalty_greater"> %</input></ul>
+        <ul><label for="royalty_less"> Less than </label>
+        <input type="number" id="royalty_less" ng-model="data.royalty_less"> %</input></ul>
     </div>
 
     <div class="manydiv">
       <label>Equity:  </label>
-        <ul><label for="greater"> Greater than $</label>
-        <input type="number" > M</input></ul>
-        <ul><label for="less"> Less than $</label>
-        <input type="number"> M</input></ul>
+        <ul><label for="equity_greater"> Greater than $</label>
+        <input type="number" id="equity_greater" ng-model="data.equity_greater"> M</input></ul>
+        <ul><label for="equity_less"> Less than $</label>
+        <input type="number" id="equity_less" ng-model="data.equity_less"> M</input></ul>
     </div>
 
     <div class="manydiv">
       <label>R&D Payment:  </label>
-        <ul><label for="greater"> Greater than $</label>
-        <input type="number" > M</input></ul>
-        <ul><label for="less"> Less than $</label>
-        <input type="number"> M</input></ul>
+        <ul><label for="rd_payment_greater"> Greater than $</label>
+        <input type="number" id="rd_payment_greater" ng-model="data.rd_payment_greater"> M</input></ul>
+        <ul><label for="rd_payment_less"> Less than $</label>
+        <input type="number" id="rd_payment_less" ng-model="data.rd_payment_less"> M</input></ul>
     </div>
 
     <div class="manydiv">
       <label>Total Milestone Payment:  </label>
-        <ul><label for="greater"> Greater than $</label>
-        <input type="number" > M</input></ul>
-        <ul><label for="less"> Less than $</label>
-        <input type="number"> M</input></ul>
+        <ul><label for="total_milestone_payment_greater"> Greater than $</label>
+        <input type="number" id="total_milestone_payment_greater" ng-model="data.total_milestone_payment_greater"> M</input></ul>
+        <ul><label for="total_milestone_payment_less"> Less than $</label>
+        <input type="number" id="total_milestone_payment_less" ng-model="data.total_milestone_payment_less"> M</input></ul>
     </div>
 
     <div class="manydiv">
       <label>Profit Split:  </label>
-        <ul><label for="greater"> Greater than </label>
-        <input type="number" > %</input></ul>
-        <ul><label for="less"> Less than </label>
-        <input type="number"> %</input></ul>
+        <ul><label for="profit_split_greater"> Greater than </label>
+        <input type="number" id="profit_split_greater" ng-model="data.profit_split_greater"> %</input></ul>
+        <ul><label for="profit_split_less"> Less than </label>
+        <input type="number" id="profit_split_less" ng-model="data.profit_split_less"> %</input></ul>
     </div>
   </div>
 
@@ -119,5 +121,18 @@
     </div>
 
   </form>
+
+
+  <hr>
+  <div style="overflow:auto;">
+    <table border=1>
+        <tr>
+            <th ng-repeat="(key, val) in data.alliance_result[0]">{{key}}</th>
+        </tr>
+        <tr ng-repeat="item in data.alliance_result">
+            <td ng-repeat="(key, value) in item">{{value}}</td>
+        </tr>
+    </table>
+  </div>
 
 </div>
