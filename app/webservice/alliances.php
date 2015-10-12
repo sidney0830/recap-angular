@@ -16,6 +16,8 @@ if (!empty($_GET)) {
   $query = "SELECT * FROM alliance ";
 
   if ($_GET['agreement_from'] != null && $_GET['agreement_to'] != null) {
+    $_GET['agreement_from'] = explode("(", $_GET['agreement_from'])[0];
+    $_GET['agreement_to'] = explode("(", $_GET['agreement_to'])[0];
     $from = date('Y-m-d', strtotime($_GET['agreement_from']));
     $to = date('Y-m-d', strtotime($_GET['agreement_to']));
     $query = ($has_where == false ? $query."WHERE Date BETWEEN '$from' AND '$to' " : $query."AND Date BETWEEN '$from' AND '$to' ");
@@ -211,9 +213,7 @@ if (!empty($_GET)) {
   $i = 0;
   while ($rows[$i++] = mysql_fetch_array($result, MYSQL_ASSOC));
   array_pop($rows);
-
   echo json_encode($rows);
-
 }
 
 
