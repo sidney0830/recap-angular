@@ -10,9 +10,15 @@ header('Content-Type: application/json; charset=utf-8');
 
 
 if (!empty($_GET)) {
-  mysql_connect('140.113.117.125','root','root');
+  $conn=mysql_connect('140.113.117.125','root','root');
+  if (!$conn)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
   mysql_select_db('recap');
   mysql_set_charset('utf8');
+  // $conn= mysql_connect('140.113.117.125','root','root');
 
   $from = $_GET['from'];
   $until = $_GET['until'];
