@@ -12,11 +12,13 @@ angular.module('myApp.view2', ['ngRoute'])
 .controller('View2Ctrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.input = {
-        alliance_types: ['Acquisition', 'Asset Purchase', 'Assignment', 'Co-Development', 'Co-Market', 'Co-Promotion', 'Collaboration', 'Cross-license', 'Development', 'Distribution', 'Equity', 'Joint Venture', 'Letter of Intent', 'License', 'Loan', 'Manufacturing', 'Marketing', 'Merger', 'Option', 'Research', 'Security', 'Settlement', 'Sublicense', 'Supply', 'Termination', 'Warrant'],
+        // alliance_types: ["Acquisition","Asset Purchase","Assignment","Co-Development","Co-Market","Co-Promotion","Collaboration","Cross-license","Development","Distribution","Equity","Joint Venture","Letter of Intent","License","Loan","Manufacturing","Marketing","Merger","Option","Research","Security","Settlement","Sublicense","Supply","Termination","Warrant"],
+        alliance_types: ['Acq','Ast','Asn','CoD','CoM','CoP','Col','CrL','D','Di','E','JV','LoI','L','Lo','Man','Mkt','Mrg','O','R','S','Sec','Set','Sub','Ter','W'],
         alliance_parties: ["Pharma-Biotech" ,"Biotech-Biotech" ,"Pharma-Pharma" ,"University-Biotech", "University-Pharma" ,"Non-Medical"],
         alliance_technologies:  ["Adjuvant" ,"Bioinformatics" ,"Carbohydrates" ,"Cell Therapy - Stem Cells/Factors" ,"Collagen matrix" ,"Combinatorial" ,"Device" ,"Diagnostics" ,"DNA Probes" ,"Drug Delivery - Liposomes" ,"Drug Delivery - Oral" ,"Drug Delivery - Other" ,"Drug Delivery - Sustained Release" ,"Drug Delivery - Transdermal" ,"Gene Expression" ,"Gene Sequencing" ,"Generics" ,"Hyaluronic acid" ,"Immunoassay" ,"Immunoglobulin" ,"Implantable Devices" ,"In-licensed Products" ,"Microarrays" ,"Micropropagation" ,"Microspheres" ,"Monoclonals" ,"Monoclonals - Anti-Idiotypes" ,"Monoclonals - Conjugates" ,"Monoclonals - Humanized & Fully Human Abs" ,"Monoclonals - Transgenic mice" ,"Natural Product" ,"Oligonucleotide ligands" ,"Oligonucleotides - Antisense/Triple helix" ,"Oligonucleotides - Gene Therapy" ,"Oligonucleotides - Ribozymes" ,"Peptides" ,"PFOB Emulsions" ,"Pharmacogenomics" ,"Phototherapy" ,"Polyclonal Antibodies" ,"Polyethylene glycol" ,"Proteomics" ,"Purines & Pyrimidines" ,"Rational Drug Design - Computational" ,"Rational Drug Design - Small Molecules" ,"Recombinant DNA" ,"Resin Polymers" ,"Screening" ,"Separations" ,"Service Laboratory" ,"Small Molecules" ,"Transcription Factors" ,"Transgenics" ,"Vaccines"],
         alliance_stages: ["Formulation" ,"Discovery" ,"Lead Molecule" ,"Preclinical" ,"Phase I" ,"Phase II" ,"Phase III" ,"BLA/NDA filed" ,"Approved"],
-        alliance_allergic: ["Allergic (All)","Broad Focus Allergic","Allergic Rhinitis","Anaphylactic Shock","Food/Pet Allergies","Other Allergic"],
+
+        alliance_allergics: ["Allergic (All)","Broad Focus Allergic","Allergic Rhinitis","Anaphylactic Shock","Food/Pet Allergies","Other Allergic"],
         alliance_autoimmune: ["Autoimmune (All)","Broad Focus Autoimmune/Inflammatory","Osteoarthritis","Psoriatic Arthritis","Rheumatoid Arthritis","Scleroderma","Systemic Lupus Erythematosus","Other Autoimmune/Inflammatory"],
         alliance_bone: ["Bone Disease (All)","Broad Focus Bone Disease","Bone Non-Union/Fracture","Osteoporosis","Paget's Disease","Other Bone Disease"],
         alliance_cancer: ["Cancer (All)","Broad Focus Cancer","Bladder","Brain","Breast","Cervical","Colorectal","Diagnosis - Contrast/Imaging","Digestive/Gastrointestinal","Head and Neck","Kaposi's Sarcoma","Kidney","Leukemia","Liver","Lung","Lymphoma","Melanoma","Multiple Myeloma","Ovarian","Pancreatic","Prostate","Solid Tumors","Other Cancer"],
@@ -47,7 +49,7 @@ angular.module('myApp.view2', ['ngRoute'])
         select_alliance_types: "",
         select_alliance_technologies: "",
         select_alliance_stages: '',
-        select_alliance_allergic: '',
+        select_alliance_allergics: '',
         select_alliance_autoimmune: '',
         select_alliance_bone: '',
         select_alliance_cancer: '',
@@ -117,6 +119,11 @@ angular.module('myApp.view2', ['ngRoute'])
         })
 
     }
+
+
+
+
+
 
 }]);
 

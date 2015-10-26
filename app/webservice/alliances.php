@@ -159,22 +159,22 @@ if (!empty($_GET)) {
 
   // Alliance Type
   if ($_GET['select_alliance_types'] != null && count($_GET['select_alliance_types']) > 0) {
-    // $types = $_GET['select_alliance_types'];
-    // $value = array_shift($types);
-    // $query = ($has_where == false ? $query."WHERE (Type LIKE '%$value%' " : $query."AND (Type LIKE '%$value%'");
-    // $has_where = true;
+    $types = $_GET['select_alliance_types'];
+    $value = array_shift($types);
+    $query = ($has_where == false ? $query."WHERE (Type LIKE '%$value%' " : $query."AND (Type LIKE '%$value%'");
+    $has_where = true;
 
-    // foreach($types as $value) {
-    //     $query = $query." OR Type LIKE '%$value%'";
-    // }
-    // $query = $query.') ';
+    foreach($types as $value) {
+        $query = $query." OR Type LIKE '%$value%'";
+    }
+    $query = $query.') ';
   }
 
   // Technology:
   if ($_GET['select_alliance_technologies'] != null && count($_GET['select_alliance_technologies']) > 0) {
     $techs = $_GET['select_alliance_technologies'];
     $value = array_shift($techs);
-    $query = ($has_where == false ? $query."WHERE (Technology LIKE '%$value%' " : $query."AND (Technology LIKE '%$value%'");
+    $query = ($has_where == false ? $query."WHERE (`Technology` LIKE '%$value%' " : $query."AND (Technology LIKE '%$value%'");
     $has_where = true;
 
     foreach($techs as $value) {
@@ -195,6 +195,20 @@ if (!empty($_GET)) {
     }
     $query = $query.') ';
   }
+  //allergic
+  if ($_GET['select_alliance_allergics'] != null && count($_GET['select_alliance_allergics']) > 0) {
+    $alles = $_GET['select_alliance_allergics'];
+    $value = array_shift($alles);
+    $query = ($has_where == false ? $query."WHERE (Condition LIKE '%$value%'" : $query."AND (Condition LIKE '%$value%'");
+    $has_where = true;
+
+    foreach($alles as $value) {
+        $query = $query." OR Condition LIKE '%$value%'";
+    }
+    $query = $query.') ';
+  }
+
+
 
   // Subject
   if ($_GET['subject'] != null && count($_GET['subject']) > 0) {
