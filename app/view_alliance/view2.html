@@ -24,7 +24,6 @@
     <label>Alliance Type: </label>
     <select multiple  id="alliance_type" ng-model="data.select_alliance_types" ng-options="t as t for t in input.alliance_types"></select>
     {{data.select_alliance_types}}
-
     <label> "Acquisition","Asset Purchase","Assignment","Co-Development","Co-Market","Co-Promotion","Collaboration","Cross-license","Development","Distribution","Equity","Joint Venture","Letter of Intent","License","Loan","Manufacturing","Marketing","Merger","Option","Research","Security","Settlement","Sublicense","Supply","Termination","Warrant"</label>
 
     <br><br>
@@ -121,13 +120,12 @@
   </div>
 
 
-  <div class="onediv" id="thera_hidden">
-<h4> Therapeutic Area :</h4>
+
+  <div class="onediv" style="display:none">
+    <h4> Therapeutic Area :</h4>
       <div class="manydiv2">
       <label>Allergic:  </label><br>
-        <select multiple id="alliance_allergic" ng-model="data.select_alliance_allergic" ng-options="t as t for t in input.alliance_allergics"></select>
-
-        {{data.select_alliance_allergic}}
+        <select multiple id="alliance_allergic" ng-model="data.select_alliance_allergic" ng-options="t as t for t in input.alliance_allergic"></select>
       </div>
 
       <div class="manydiv2">
@@ -252,15 +250,21 @@
 
       <input type="button" onclick="tableToExcel('toexcel2', 'name', 'myfile.xls')" value="Export to Excel"></input><br>
       <label> *notice: need to add ".xls" by user when user download</label>
-    </div> -->
+    </div>
+ -->
+    <!-- <a href="#" class="export">Export Table data into Excel</a> -->
 
+    <div>
+        <button type="button" ng-csv="data.alliance_result" csv-header="['id','Alliance Summary','Has Analysis','Has Contract','Licensor/Seller','Licensee/Buyer','Date','Amendment Date','Type','Stage','Subject','Size','Upfront','Equity','RD Amt','Tot Milestone Amt','AdjMilestone Amt','Sales Milestones','Royalty','Profit Split','Transfer Price','Marketing Fee','Disease','Condition','Technology','License Region','License Country','Exclusivity','Parties']" filename="test.csv">Export to csv</button>
+        {{data.header}}
+      </div>
 
   </form>
 
 
   <hr>
   <div style="overflow:auto;">
-    <table border=1 id="toexcel2">
+    <table border=1 id="tblExport">
         <tr>
             <th ng-repeat="(key, val) in data.alliance_result[0]">{{key}}</th>
         </tr>
