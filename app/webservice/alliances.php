@@ -9,7 +9,7 @@ header('Content-Type: application/json; charset=utf-8');
 
 if (!empty($_GET)) {
   mysql_connect('140.113.117.125','root','root');
-  mysql_select_db('recap');
+  mysql_select_db('recapnew');
   mysql_set_charset('utf8');
 
   $has_where = false;

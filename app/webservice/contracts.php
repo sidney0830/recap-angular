@@ -16,7 +16,7 @@ if (!empty($_GET)) {
   die('Could not connect: ' . mysql_error());
   }
 
-  mysql_select_db('recap');
+  mysql_select_db('recapnew');
   mysql_set_charset('utf8');
   // $conn= mysql_connect('140.113.117.125','root','root');
 
