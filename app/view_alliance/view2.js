@@ -9,7 +9,7 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', ['$scope', '$http', function($scope, $http) {
+.controller('View2Ctrl', ['$scope', '$http', '$document', function($scope, $http, $document) {
 
     $scope.input = {
         alliance_types_full: ["Acquisition","Asset Purchase","Assignment","Co-Development","Co-Market","Co-Promotion","Collaboration","Cross-license","Development","Distribution","Equity","Joint Venture","Letter of Intent","License","Loan","Manufacturing","Marketing","Merger","Option","Research","Security","Settlement","Sublicense","Supply","Termination","Warrant"],
@@ -96,6 +96,8 @@ angular.module('myApp.view2', ['ngRoute'])
 
 
     $scope.submit = function() {
+        $('.testselect2').SumoSelect();
+        return
         // submit form
 
         console.log('send reqeust')
@@ -130,7 +132,13 @@ angular.module('myApp.view2', ['ngRoute'])
     }
 
 
-
+    $scope.$on('$viewContentLoaded', function(){
+        //Here your view content is fully loaded !!
+        $('.parties').SumoSelect({selectAll: true});
+        $('.alliance_types').SumoSelect({selectAll: true});
+        $('.alliance_technologies').SumoSelect({selectAll: true});
+        $('.alliance_stages').SumoSelect({selectAll: true});
+    });
 
 
 

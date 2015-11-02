@@ -68,5 +68,11 @@ angular.module('myApp.view1', ['ngRoute'])
         return keys;
     }
 
+    $scope.$on('$viewContentLoaded', function(){
+        //Here your view content is fully loaded !!
+        $('.parties').SumoSelect({selectAll: true});
+        $('.contract_types').SumoSelect({selectAll: true});
+    });
+
 
 }]);
