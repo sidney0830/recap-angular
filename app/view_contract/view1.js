@@ -40,6 +40,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
         console.log('send reqeust')
 
+        $scope.data.contract_result = ""
         $scope.data.in_progressing = true
         console.log($scope.data)
         console.log('webservice/contracts.php?' + $.param($scope.data))
@@ -48,11 +49,23 @@ angular.module('myApp.view1', ['ngRoute'])
             method: 'get',
             url: 'webservice/contracts.php?' + $.param($scope.data)
         }).success(function(data) {
+            console.log(data)
             $scope.data.contract_result = data
+            $scope.data.header = getKeys($scope.data.contract_result[0])
             $scope.data.in_progressing = false
         })
 
 
+    }
+
+
+
+    var getKeys = function(obj){
+        var keys = [];
+        for(var key in obj){
+            keys.push(key);
+        }
+        return keys;
     }
 
 
