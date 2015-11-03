@@ -17,30 +17,29 @@ angular.module('myApp.view2', ['ngRoute'])
         alliance_parties: ["Pharma-Biotech" ,"Biotech-Biotech" ,"Pharma-Pharma" ,"University-Biotech", "University-Pharma" ,"Non-Medical"],
         alliance_technologies:  ["Adjuvant" ,"Bioinformatics" ,"Carbohydrates" ,"Cell Therapy - Stem Cells/Factors" ,"Collagen matrix" ,"Combinatorial" ,"Device" ,"Diagnostics" ,"DNA Probes" ,"Drug Delivery - Liposomes" ,"Drug Delivery - Oral" ,"Drug Delivery - Other" ,"Drug Delivery - Sustained Release" ,"Drug Delivery - Transdermal" ,"Gene Expression" ,"Gene Sequencing" ,"Generics" ,"Hyaluronic acid" ,"Immunoassay" ,"Immunoglobulin" ,"Implantable Devices" ,"In-licensed Products" ,"Microarrays" ,"Micropropagation" ,"Microspheres" ,"Monoclonals" ,"Monoclonals - Anti-Idiotypes" ,"Monoclonals - Conjugates" ,"Monoclonals - Humanized & Fully Human Abs" ,"Monoclonals - Transgenic mice" ,"Natural Product" ,"Oligonucleotide ligands" ,"Oligonucleotides - Antisense/Triple helix" ,"Oligonucleotides - Gene Therapy" ,"Oligonucleotides - Ribozymes" ,"Peptides" ,"PFOB Emulsions" ,"Pharmacogenomics" ,"Phototherapy" ,"Polyclonal Antibodies" ,"Polyethylene glycol" ,"Proteomics" ,"Purines & Pyrimidines" ,"Rational Drug Design - Computational" ,"Rational Drug Design - Small Molecules" ,"Recombinant DNA" ,"Resin Polymers" ,"Screening" ,"Separations" ,"Service Laboratory" ,"Small Molecules" ,"Transcription Factors" ,"Transgenics" ,"Vaccines"],
         alliance_stages: ["Formulation" ,"Discovery" ,"Lead Molecule" ,"Preclinical" ,"Phase I" ,"Phase II" ,"Phase III" ,"BLA/NDA filed" ,"Approved"],
-        alliance_allergic: ["Allergic (All)","Broad Focus Allergic","Allergic Rhinitis","Anaphylactic Shock","Food/Pet Allergies","Other Allergic"],
-        alliance_autoimmune: ["Autoimmune (All)","Broad Focus Autoimmune/Inflammatory","Osteoarthritis","Psoriatic Arthritis","Rheumatoid Arthritis","Scleroderma","Systemic Lupus Erythematosus","Other Autoimmune/Inflammatory"],
-        alliance_bone: ["Bone Disease (All)","Broad Focus Bone Disease","Bone Non-Union/Fracture","Osteoporosis","Paget's Disease","Other Bone Disease"],
-        alliance_cancer: ["Cancer (All)","Broad Focus Cancer","Bladder","Brain","Breast","Cervical","Colorectal","Diagnosis - Contrast/Imaging","Digestive/Gastrointestinal","Head and Neck","Kaposi's Sarcoma","Kidney","Leukemia","Liver","Lung","Lymphoma","Melanoma","Multiple Myeloma","Ovarian","Pancreatic","Prostate","Solid Tumors","Other Cancer"],
-        alliance_cardi: ["Cardiovascular (All)","Broad Focus Cardiovascular","Angina","Arrhythmia","Atherosclerosis/Coronary Artery Disease","Congestive Heart Failure","Diagnosis - Contrast/Imaging","Hypercholesterolemia","Hypertension","Myocardial Infarction","Peripheral Arterial Disease","Restenosis","Other Cardiovascular"],
-        alliance_centr: ["Central Nervous System (All)","Broad Focus Central Nervous System","Alzheimer's Disease","Amyotrophic Lateral Sclerosis","Dementia","Epilepsy","Migraine","Multiple Sclerosis","Pain","Parkinson's Disease","Sleep Disorders","Spinal Cord Injury","Stroke","Other Central Nervous System"],
+        alliance_allergic: ["Broad Focus Allergic","Allergic Rhinitis","Anaphylactic Shock","Food/Pet Allergies","Other Allergic"],
+        alliance_autoimmune: ["Broad Focus Autoimmune/Inflammatory","Osteoarthritis","Psoriatic Arthritis","Rheumatoid Arthritis","Scleroderma","Systemic Lupus Erythematosus","Other Autoimmune/Inflammatory"],
+        alliance_bone: ["Broad Focus Bone Disease","Bone Non-Union/Fracture","Osteoporosis","Paget's Disease","Other Bone Disease"],
+        alliance_cancer: ["Broad Focus Cancer","Bladder","Brain","Breast","Cervical","Colorectal","Diagnosis - Contrast/Imaging","Digestive/Gastrointestinal","Head and Neck","Kaposi's Sarcoma","Kidney","Leukemia","Liver","Lung","Lymphoma","Melanoma","Multiple Myeloma","Ovarian","Pancreatic","Prostate","Solid Tumors","Other Cancer"],
+        alliance_cardi: ["Broad Focus Cardiovascular","Angina","Arrhythmia","Atherosclerosis/Coronary Artery Disease","Congestive Heart Failure","Diagnosis - Contrast/Imaging","Hypercholesterolemia","Hypertension","Myocardial Infarction","Peripheral Arterial Disease","Restenosis","Other Cardiovascular"],
+        alliance_centr: ["Broad Focus Central Nervous System","Alzheimer's Disease","Amyotrophic Lateral Sclerosis","Dementia","Epilepsy","Migraine","Multiple Sclerosis","Pain","Parkinson's Disease","Sleep Disorders","Spinal Cord Injury","Stroke","Other Central Nervous System"],
+        alliance_dental: ["Broad Focus Dental/Oral","Mouth Ulcers","Mucositis","Periodontal Disease","Other Dental/Oral"],
+        alliance_derma: ["Broad Focus Dermatologic","Acne","Actinic Keratosis","Burns","Dermatitis","Hair Disorders","Psoriasis","Venous Ulcers","Wound Healing","Other Dermatologic"],
+        alliance_endoc: ["Broad Focus Endocrinological & Metabolic","Diabetes","Growth Hormone Disorders","Hypogonadism","Lysosomal Storage Disorders","Menopausal Symptoms","Obesity","Thyroid Disease","Other Endocrinological & Metabolic"],
+        alliance_gastro: ["Broad Focus Gastrointestinal","Bowel Movement Disorders","Esophageal Reflux","IBD - Crohn's Disease","IBD - Ulcerative Colitis","IBD - Other","Peptic Ulcers","Other Gastrointestinal"],
+        alliance_genit: ["Broad Focus Genitourinary/Gynecologic","Contraception","Incontinence","Infertility","Sexual Dysfunction","Other Genitourinary/Gynecologic"],
+        alliance_hemato: ["Broad Focus Hematologic","Anemia","Blood Substitute","Hemophilia","Immune Thrombocytopenic Purpura","Neutropenia","Sickle Cell Disease","Thrombocytopenia","Thrombosis","Other Hematologic"],
+        alliance_infectb: ["Broad Focus Infectious-Bacterial","Anthrax","Bacterial Meningitis","Lyme Disease","Pneumonia","Sepsis","Tuberculosis","Urinary Tract Infections","Other Infectious-Bacterial"],
+        alliance_infectv: ["Broad Focus Infectious-Viral","Common Cold","Cytomegalovirus/CMV","Hepatitis A","Hepatitis B","Hepatitis C","Human Immunodeficiency Virus/HIV","Influenza","Respiratory Syncytial Virus/RSV","Other Infectious-Viral"],
+        alliance_infectm: ["Fungal","Malaria","Parasitic-Miscellaneous","Other Infectious-Miscellaneous"],
+        alliance_liver: ["Broad Focus Liver & Gallbladder Diseases","Cirrhosis/Scarring","Fatty Liver","Gallbladder Stones","Liver Disease/Inflammation","Primary Bilary Cirrhosis","Other Liver & Gallbladder Diseases"],
+        alliance_opht: ["Broad Focus Ophthalmic","Age-Related Macular Degeneration","Cataracts","Conjunctivitis","Glaucoma","Retinopathy","Uveitis","Other Ophthalmic"],
+        alliance_psy: ["Broad Focus Psychiatric","Addiction","Anxiety","Attention Deficit Hyperactivity Disorder","Depression & Mania","Schizophrenia","Other Psychiatric"],
+        alliance_renal: ["Broad Focus Renal","Glomerulonephritis","Kidney Stones","Nephritis - Other","Other Renal"],
+        alliance_resp: ["Broad Focus Respiratory","Acute Respiratory Distress Syndrome","Asthma","Bronchitis","Chronic Obstructive Pulmonary Disease","Cystic Fibrosis","Pulmonary Embolism","Other Respiratory"],
+        alliance_trans: ["Broad Focus Transplantation","Stem Cell/Bone Marrow","Graft-versus-Host Disease","Organ/Tissue Transplants","Other Transplantation"],
 
-        alliance_dental: ["Dental/Oral (All)","Broad Focus Dental/Oral","Mouth Ulcers","Mucositis","Periodontal Disease","Other Dental/Oral"],
-        alliance_derma: ["Dermatologic (All)","Broad Focus Dermatologic","Acne","Actinic Keratosis","Burns","Dermatitis","Hair Disorders","Psoriasis","Venous Ulcers","Wound Healing","Other Dermatologic"],
-        alliance_endoc: ["Endocrinological & Metabolic (All)","Broad Focus Endocrinological & Metabolic","Diabetes","Growth Hormone Disorders","Hypogonadism","Lysosomal Storage Disorders","Menopausal Symptoms","Obesity","Thyroid Disease","Other Endocrinological & Metabolic"],
-        alliance_gastro: ["Gastrointestinal (All)","Broad Focus Gastrointestinal","Bowel Movement Disorders","Esophageal Reflux","IBD - Crohn's Disease","IBD - Ulcerative Colitis","IBD - Other","Peptic Ulcers","Other Gastrointestinal"],
-        alliance_genit: ["Genitourinary/Gynecologic (All)","Broad Focus Genitourinary/Gynecologic","Contraception","Incontinence","Infertility","Sexual Dysfunction","Other Genitourinary/Gynecologic"],
-        alliance_hemato: ["Hematologic (All)","Broad Focus Hematologic","Anemia","Blood Substitute","Hemophilia","Immune Thrombocytopenic Purpura","Neutropenia","Sickle Cell Disease","Thrombocytopenia","Thrombosis","Other Hematologic"],
-        alliance_infectb: ["Infectious-Bacterial (All)","Broad Focus Infectious-Bacterial","Anthrax","Bacterial Meningitis","Lyme Disease","Pneumonia","Sepsis","Tuberculosis","Urinary Tract Infections","Other Infectious-Bacterial"],
-        alliance_infectv: ["Infectious-Viral (All)","Broad Focus Infectious-Viral","Common Cold","Cytomegalovirus/CMV","Hepatitis A","Hepatitis B","Hepatitis C","Human Immunodeficiency Virus/HIV","Influenza","Respiratory Syncytial Virus/RSV","Other Infectious-Viral"],
-        alliance_infectm: ["Infectious-Miscellaneous (All)","Fungal","Malaria","Parasitic-Miscellaneous","Other Infectious-Miscellaneous"],
-        alliance_liver: ["Liver & Gallbladder Diseases (All)","Broad Focus Liver & Gallbladder Diseases","Cirrhosis/Scarring","Fatty Liver","Gallbladder Stones","Liver Disease/Inflammation","Primary Bilary Cirrhosis","Other Liver & Gallbladder Diseases"],
-        alliance_opht: ["Ophthalmic (All)","Broad Focus Ophthalmic","Age-Related Macular Degeneration","Cataracts","Conjunctivitis","Glaucoma","Retinopathy","Uveitis","Other Ophthalmic"],
-        alliance_psy: ["Psychiatric (All)","Broad Focus Psychiatric","Addiction","Anxiety","Attention Deficit Hyperactivity Disorder","Depression & Mania","Schizophrenia","Other Psychiatric"],
-        alliance_renal: ["Renal (All)","Broad Focus Renal","Glomerulonephritis","Kidney Stones","Nephritis - Other","Other Renal"],
-        alliance_resp: ["Respiratory (All)","Broad Focus Respiratory","Acute Respiratory Distress Syndrome","Asthma","Bronchitis","Chronic Obstructive Pulmonary Disease","Cystic Fibrosis","Pulmonary Embolism","Other Respiratory"],
-        alliance_trans: ["Transplantation (All)","Broad Focus Transplantation","Stem Cell/Bone Marrow","Graft-versus-Host Disease","Organ/Tissue Transplants","Other Transplantation"],
-
-        alliance_other: ["Other/Miscellaneous (All)","Agriculture","Animal Health","Cosmetics","Industrial Chemicals","Nutritionals/Vitamins","Orthopedics","OTC Products","Other Other/Miscellaneous"],
+        alliance_other: ["Agriculture","Animal Health","Cosmetics","Industrial Chemicals","Nutritionals/Vitamins","Orthopedics","OTC Products","Other Other/Miscellaneous"],
     }
 
     $scope.data = {
@@ -138,6 +137,29 @@ angular.module('myApp.view2', ['ngRoute'])
         $('.alliance_types').SumoSelect({selectAll: true});
         $('.alliance_technologies').SumoSelect({selectAll: true});
         $('.alliance_stages').SumoSelect({selectAll: true});
+
+        $('.alliance_allergics').SumoSelect({selectAll: true, selectAlltext: "Allergic (All)",floatWidth: 800});
+        $('.alliance_autoimmunes').SumoSelect({selectAll: true, selectAlltext: "Autoimmune (All)"});
+        $('.alliance_bones').SumoSelect({selectAll: true, selectAlltext: "Bone Disease (All)"});
+        $('.alliance_cancers').SumoSelect({selectAll: true, selectAlltext: "Cancer (All)"});
+        $('.alliance_cardis').SumoSelect({selectAll: true, selectAlltext: "Cardiovascular (All)"});
+        $('.alliance_centrs').SumoSelect({selectAll: true, selectAlltext: "Central Nervous System (All)"});
+        $('.alliance_dentals').SumoSelect({selectAll: true, selectAlltext: "Dental/Oral (All)"});
+        $('.alliance_dermas').SumoSelect({selectAll: true, selectAlltext: "Dermatologic (All)"});
+        $('.alliance_endocs').SumoSelect({selectAll: true, selectAlltext: "Endocrinological & Metabolic (All)"});
+        $('.alliance_gastros').SumoSelect({selectAll: true, selectAlltext: "Gastrointestinal (All)"});
+        $('.alliance_genits').SumoSelect({selectAll: true, selectAlltext: "Genitourinary/Gynecologic (All)"});
+        $('.alliance_hematos').SumoSelect({selectAll: true, selectAlltext: "Hematologic (All)"});
+        $('.alliance_infectbs').SumoSelect({selectAll: true, selectAlltext: "Infectious-Bacterial (All)"});
+        $('.alliance_infectvs').SumoSelect({selectAll: true, selectAlltext: "Infectious-Viral (All)"});
+        $('.alliance_infectms').SumoSelect({selectAll: true, selectAlltext: "Infectious-Miscellaneous (All)"});
+        $('.alliance_livers').SumoSelect({selectAll: true, selectAlltext: "Liver & Gallbladder Diseases (All)"});
+        $('.alliance_ophts').SumoSelect({selectAll: true, selectAlltext: "Ophthalmic (All)"});
+        $('.alliance_psys').SumoSelect({selectAll: true, selectAlltext: "Psychiatric (All)"});
+        $('.alliance_renals').SumoSelect({selectAll: true, selectAlltext: "Renal (All)"});
+        $('.alliance_resps').SumoSelect({selectAll: true, selectAlltext: "Respiratory (All)"});
+        $('.alliance_trans').SumoSelect({selectAll: true, selectAlltext: 'Transplantation (All)'});
+        $('.alliance_others').SumoSelect({selectAll: true, selectAlltext: 'Other/Miscellaneous (All)'});
     });
 
 

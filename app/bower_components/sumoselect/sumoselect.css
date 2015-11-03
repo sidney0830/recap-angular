@@ -1,4 +1,4 @@
-.SlectBox { width: 200px; padding: 5px 8px;}
+.SlectBox { width: 300px; padding: 5px 8px;}
 
 /*this is applied on that hidden select. DO NOT USE display:none; or visiblity:hidden; and Do not override any of these properties. */
 .SelectClass { position: absolute; top: 0px; left: 0px; right: 0px; height: 100%; width: 100%; border: none; z-index: 1; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0; opacity: 0; }
@@ -30,7 +30,7 @@
             .SumoSelect > .optWrapper > .options > li:hover { background-color: #E4E4E4; }
             .SumoSelect > .optWrapper > .options > li.sel{background-color: #a1c0e4;}
 
-            .SumoSelect > .optWrapper > .options > li label { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: block;cursor: pointer;}
+            .SumoSelect > .optWrapper > .options > li label { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: block;cursor: pointer; font-size: small;}
             .SumoSelect > .optWrapper > .options > li span { display: none; }
 
         /*Floating styles*/
@@ -78,7 +78,7 @@
      .SumoSelect.disabled > .CaptionCont{border-color:#ccc;box-shadow:none;}
 
     /**Select all button**/
-    .SumoSelect .select-all{border-radius: 3px 3px 0px 0px;position: relative;border-bottom: 1px solid #ddd;background-color: #fff;padding: 8px 0px 3px 35px;height: 20px;}
+    .SumoSelect .select-all{border-radius: 3px 3px 0px 0px;position: relative;border-bottom: 1px solid #ddd;background-color: #fff;padding: 6px 0px 3px 35px;height: 30px; }
     .SumoSelect .select-all > span i{cursor:pointer;}
     .SumoSelect .select-all.partial > span i{background-color:#ccc;}
 
