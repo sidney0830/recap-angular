@@ -3,7 +3,9 @@
 
   <div ng-class="{true: 'loader', false: ''}[data.in_progressing]"></div>
 
-  <form ng-submit="submit()">
+  <form ng-submit="submit()" id="myform">
+
+    <input type="reset"  value="Reset form">
 
     <div class="onediv">
       <label for="company">Company:  </label>

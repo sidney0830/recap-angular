@@ -36,7 +36,7 @@ if (!empty($_GET)) {
     $query = ($has_where == false ? $query."WHERE Contract_Date BETWEEN '$from' AND '$until' " : $query."AND Contract_Date BETWEEN '$from' AND '$until' ");
     $has_where = true;
   }
-
+//contract type
   if ($contract_type != null && count($contract_type) > 0) {
       $value = array_shift($contract_type);
       $query = ($has_where == false ? $query."WHERE (Contract_Type LIKE '%$value%'" : $query."AND (Contract_Type LIKE '%$value%'");
@@ -47,7 +47,7 @@ if (!empty($_GET)) {
       }
       $query = $query.') ';
   }
-
+//parties
   if ($parties != null && count($parties) > 0) {
       $value = array_shift($parties);
       $query = ($has_where == false ? $query."WHERE (Parties LIKE '%$value%' " : $query."AND (Parties LIKE '%$value%'");
@@ -58,8 +58,15 @@ if (!empty($_GET)) {
       }
       $query = $query.') ';
   }
+// contract text
+  // if ($contract_text != null ) {
+  //     // $value = array_shift($contract_text);
+  //     $query = ($has_where == false ? $query."WHERE Agreement LIKE '%$value%' " : $query."AND (Agreement LIKE '%$value%' )");
+  //     $has_where = true;
+  //     // $query = $query.') ';
+  // }
 
-  // echo $query;
+  echo $query;
 
   $result = mysql_query($query) or die('MySQL query error');
   $is_first = true;
