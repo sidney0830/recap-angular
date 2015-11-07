@@ -5,8 +5,10 @@
 
   <form ng-submit="submit()" id="myform">
 
-    <input type="reset"  value="Reset form">
-
+    <div id="resetbutton" >
+      <input type="reset" value="Reset form">
+    <div>
+    
     <div class="onediv">
       <label for="company">Company:  </label>
       <input type="text" id="company" ng-model="data.company">
@@ -241,13 +243,95 @@
 
   <div class="onediv">
     <h4>Licensed Territory: </h4>
-  </div>
-    <!-- submit button -->
-    <br>
+      
+      <div>
+        <input type="radio" name="region" value="worldwide" > Worldwide </input>
+        <input type="radio" name="region" value="reginal" > Regional Territory</input>
+      </div> 
+      <div class="regional_show">
+        <div class="manydiv2">
+          <label>Asia:  </label>
+          <select multiple id="alliance_asia" class="alliance_asia" ng-model="data.select_alliance_asia" ng-options="t as t for t in input.alliance_asia">
+          </select>
+        </div>
 
-    <div align="center">
-      <input type="submit" value="Submit">
-    </div>
+        <div class="manydiv2">
+          <label>Africa:  </label>
+          <select multiple id="alliance_africa" class="alliance_africa" ng-model="data.select_alliance_africa" ng-options="t as t for t in input.alliance_africa">
+          </select>
+        </div>
+
+
+        <div class="manydiv2">
+          <label>Europe:  </label>
+          <select multiple id="alliance_europe" class="alliance_europe" ng-model="data.select_alliance_europe" ng-options="t as t for t in input.alliance_europe">
+          </select>
+        </div>
+
+
+        <div class="manydiv2">
+          <label>Mideast:  </label>
+          <select multiple id="alliance_mideast" class="alliance_mideast" ng-model="data.select_alliance_mideast" ng-options="t as t for t in input.alliance_mideast">
+          </select>
+        </div>
+
+
+        <div class="manydiv2">
+          <label>North America:  </label>
+          <select multiple id="alliance_northamerica" class="alliance_northamerica" ng-model="data.select_alliance_northamerica" ng-options="t as t for t in input.alliance_northamerica">
+          </select>
+        </div>
+
+
+        <div class="manydiv2">
+          <label>South America:  </label>
+          <select multiple id="alliance_southamerica" class="alliance_southamerica" ng-model="data.select_alliance_southamerica" ng-options="t as t for t in input.alliance_southamerica">
+          </select>
+        </div>
+
+
+      </div>      <!-- reginal show -->
+
+      <br>
+      
+
+      <div style="font-style: italic; font-weight: bold;">
+        <p> **NOTE: Territory data is not indexed for all deals. Some territory data may also be retrieved by using the “Subject Text Search” box at the top of this page.
+        </p>
+      </div>
+
+
+
+
+
+  </div>
+
+
+  <div class="onediv" id="yoo">
+     <h4>Contractual Data: </h4>
+
+      <div class="manydiv2">
+          <label>Disclosure of Terms: </label>
+          <select multiple id="alliance_disclosure" class="alliance_disclosure" ng-model="data.select_alliance_disclosure" ng-options="t as t for t in input.alliance_disclosure">
+          </select>
+      </div>
+
+      <div class="manydiv2">
+          <label>License Exclusivity:  </label>
+          <select multiple id="alliance_exclusiv" class="alliance_exclusiv" ng-model="data.select_alliance_exclusiv" ng-options="t as t for t in input.alliance_exclusiv">
+          </select>
+      </div>
+
+
+  </div>
+
+
+
+
+    <div class="bottom" align="center">
+
+      <input type="submit" value="Submit"><!-- submit button -->
+
 
     <!-- <div align="center">
 
@@ -260,7 +344,10 @@
     <div>
         <button type="button" ng-csv="data.alliance_result" csv-header="['Alliance Summary','Has Analysis','Has Contract','Licensor/Seller','Licensee/Buyer','Date','Amendment Date','Type','Stage','Subject','Size','Upfront','Equity','RD Amt','Tot Milestone Amt','AdjMilestone Amt','Sales Milestones','Royalty','Profit Split','Transfer Price','Marketing Fee','Disease','Condition','Technology','License Region','License Country','Exclusivity','Parties']" filename="test.csv">Export to csvv</button>
         {{data.header}}
-      </div>
+    </div>
+  
+  </div>
+
 
   </form>
 

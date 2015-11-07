@@ -70,9 +70,9 @@ angular.module('myApp.view1', ['ngRoute'])
 
     $scope.$on('$viewContentLoaded', function(){
         //Here your view content is fully loaded !!
-        $('.parties').SumoSelect({selectAll: true});
-        $('.contract_types').SumoSelect({selectAll: true});
-    });
+        $('.parties').SumoSelect({selectAll: true})
+        $('.contract_types').SumoSelect({selectAll: true})
+    })
 
 
 }]);

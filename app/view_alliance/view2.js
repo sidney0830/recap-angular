@@ -38,8 +38,18 @@ angular.module('myApp.view2', ['ngRoute'])
         alliance_renal: ["Broad Focus Renal","Glomerulonephritis","Kidney Stones","Nephritis - Other","Other Renal"],
         alliance_resp: ["Broad Focus Respiratory","Acute Respiratory Distress Syndrome","Asthma","Bronchitis","Chronic Obstructive Pulmonary Disease","Cystic Fibrosis","Pulmonary Embolism","Other Respiratory"],
         alliance_trans: ["Broad Focus Transplantation","Stem Cell/Bone Marrow","Graft-versus-Host Disease","Organ/Tissue Transplants","Other Transplantation"],
-
         alliance_other: ["Agriculture","Animal Health","Cosmetics","Industrial Chemicals","Nutritionals/Vitamins","Orthopedics","OTC Products","Other Other/Miscellaneous"],
+
+        alliance_asia: ["(Any) Asian Territory","Australia","China","India","Japan","New Zealand","Southeast Asia","Other Asian"],
+        alliance_africa: ["(Any) African Territory","All African Countries","Algeria","Egypt"  ,"South Africa" ,"Other African"],
+        alliance_europe: ["(Any) European Territory","Eastern Europe","European Union","France","Germany","Russia","Scandinavia","Spain","United Kingdom","Other European"],
+        alliance_mideast: ["(Any) Mideast Territory","Israel","Saudi Arabia","Turkey","Other Middle Eastern"],
+
+        alliance_northamerica: ["(Any) North American Territory","Canada","Mexico","US"],
+        alliance_southamerica: ["(Any) South American Territory","Argentina","Brazil","Chile","Other South American"],
+        alliance_disclosure: ["Full","Partial","None"],
+        alliance_exclusiv: ["Exclusive","Semi-exclusive","Non-exclusive"]
+
     }
 
     $scope.data = {
@@ -69,6 +79,20 @@ angular.module('myApp.view2', ['ngRoute'])
         select_alliance_resp: '',
         select_alliance_trans: '',
         select_alliance_other: '',
+
+        select_alliance_asia:'',
+        select_alliance_africa:'',
+        select_alliance_europe:'',
+        select_alliance_mideast:'',
+        select_alliance_northamerica:'',
+        select_alliance_southamerica:'',
+
+
+        select_alliance_disclosure:'',
+        select_alliance_exclusiv:'',
+
+
+
 
         company: "",
         subject: "",
@@ -163,6 +187,18 @@ angular.module('myApp.view2', ['ngRoute'])
         $('.alliance_resps').SumoSelect({selectAll: true, selectAlltext: "Respiratory (All)"});
         $('.alliance_trans').SumoSelect({selectAll: true, selectAlltext: 'Transplantation (All)'});
         $('.alliance_others').SumoSelect({selectAll: true, selectAlltext: 'Other/Miscellaneous (All)'});
+        
+
+        $('.alliance_asia').SumoSelect({selectAll: true, selectAlltext: 'All Asian Countries'});
+        $('.alliance_africa').SumoSelect({selectAll: true, selectAlltext: 'All African Countries'});
+        $('.alliance_europe').SumoSelect({selectAll: true, selectAlltext: 'All European Countries'});
+        $('.alliance_mideast').SumoSelect({selectAll: true, selectAlltext: 'All Mideast Countries'});
+        $('.alliance_northamerica').SumoSelect({selectAll: true, selectAlltext: '"All North American Countries"'});
+        $('.alliance_southamerica').SumoSelect({selectAll: true, selectAlltext: 'All South American Countries'});
+
+        
+        $('.alliance_disclosure').SumoSelect();
+        $('.alliance_exclusiv').SumoSelect();
     });
 
 
