@@ -24,6 +24,7 @@ if (!empty($_GET)) {
   $until = $_GET['until'];
   $contract_type = $_GET['select_contract_types'];
   $contract_text = $_GET['contract_text'];
+  $contract_company = $_GET['contract_company'];
   $parties = $_GET['select_contact_parties'];
 
 
@@ -59,14 +60,24 @@ if (!empty($_GET)) {
       $query = $query.') ';
   }
 // contract text
-  // if ($contract_text != null ) {
+  if ($contract_text != null ) {
+      // $value = array_shift($contract_text);
+      $query = ($has_where == false ? $query."WHERE ( Agreement LIKE '%$contract_text %' " : $query."AND (Agreement LIKE '%$contract_text %'");
+      
+      // $query =$query."WHERE `Agreement` LIKE '%$contract_text %' ";
+      $has_where = true;
+      $query = $query.') ';
+  }
+
+  //  if ($contract_text != null ) {
   //     // $value = array_shift($contract_text);
-  //     $query = ($has_where == false ? $query."WHERE Agreement LIKE '%$value%' " : $query."AND (Agreement LIKE '%$value%' )");
+  //     $query = ($has_where == false ? $query."WHERE CONTAINS(Agreement, '%$value%' ) " : $query."AND CONTAINS(Agreement, '%$value%' )");
   //     $has_where = true;
   //     // $query = $query.') ';
   // }
 
-  echo $query;
+  // $arrayName = array('result:' => $queery );
+  // echo json_encode($arrayName);
 
   $result = mysql_query($query) or die('MySQL query error');
   $is_first = true;

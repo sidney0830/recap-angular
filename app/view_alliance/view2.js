@@ -193,7 +193,7 @@ angular.module('myApp.view2', ['ngRoute'])
         $('.alliance_africa').SumoSelect({selectAll: true, selectAlltext: 'All African Countries'});
         $('.alliance_europe').SumoSelect({selectAll: true, selectAlltext: 'All European Countries'});
         $('.alliance_mideast').SumoSelect({selectAll: true, selectAlltext: 'All Mideast Countries'});
-        $('.alliance_northamerica').SumoSelect({selectAll: true, selectAlltext: '"All North American Countries"'});
+        $('.alliance_northamerica').SumoSelect({selectAll: true, selectAlltext: 'All North American Countries'});
         $('.alliance_southamerica').SumoSelect({selectAll: true, selectAlltext: 'All South American Countries'});
 
         
