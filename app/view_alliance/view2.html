@@ -26,7 +26,7 @@
     <br><br>
 
     <label>Alliance Type: </label>
-    <select multiple  id="alliance_types" class="alliance_types" ng-model="data.select_alliance_types" ng-options="t as t for t in input.alliance_types"></select>
+    <select multiple  id="alliance_types" class="alliance_types" ng-model="data.select_alliance_types" ng-options="key as value for (key, value) in input.alliance_types"></select>
     {{data.select_alliance_types}}
     <label> "Acquisition","Asset Purchase","Assignment","Co-Development","Co-Market","Co-Promotion","Collaboration","Cross-license","Development","Distribution","Equity","Joint Venture","Letter of Intent","License","Loan","Manufacturing","Marketing","Merger","Option","Research","Security","Settlement","Sublicense","Supply","Termination","Warrant"</label>
 
@@ -359,7 +359,16 @@
             <th ng-repeat="(key, val) in data.alliance_result[0]">{{key}}</th>
         </tr>
         <tr ng-repeat="item in data.alliance_result">
-            <td ng-repeat="(key, value) in item">{{value}}</td>
+            <td ng-repeat="(key, value) in item">
+		<div ng-switch on="key">
+			<div ng-switch-when="Type">
+				{{input.alliance_types[value]}}
+			</div>
+			<div ng-switch-default>
+				{{value}}
+			</div>
+		</div>
+	    </td>
         </tr>
     </table>
   </div>
