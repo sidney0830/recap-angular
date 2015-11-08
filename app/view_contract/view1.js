@@ -25,7 +25,7 @@ angular.module('myApp.view1', ['ngRoute'])
         contract_parties: ["Pharma-Biotech" ,"Biotech-Biotech" ,"Pharma-Pharma" ,"University-Biotech" ,"Non-Medical"],
         select_contact_parties: "",
         select_contract_types: "",
-        company: "",
+        contract_company: "",
         contract_text: "",
         from: "",
         until: "",

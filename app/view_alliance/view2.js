@@ -11,6 +11,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
 .controller('View2Ctrl', ['$scope', '$http', '$document', function($scope, $http, $document) {
 
+
 	$scope.input = {
 		alliance_types_full: ["Acquisition","Asset Purchase","Assignment","Co-Development","Co-Market","Co-Promotion","Collaboration","Cross-license","Development","Distribution","Equity","Joint Venture","Letter of Intent","License","Loan","Manufacturing","Marketing","Merger","Option","Research","Security","Settlement","Sublicense","Supply","Termination","Warrant"],
 		alliance_types: {
@@ -235,6 +236,7 @@ angular.module('myApp.view2', ['ngRoute'])
 		$('.alliance_disclosure').SumoSelect();
 		$('.alliance_exclusiv').SumoSelect();
 	});
+
 
 
 
