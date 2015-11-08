@@ -122,8 +122,8 @@ angular.module('myApp.view2', ['ngRoute'])
 		select_alliance_disclosure:'',
 		select_alliance_exclusiv:'',
 
-		company: "",
-		subject: "",
+		alliance_company: "",
+		alliance_subject: "",
 		alliance_text: "",
 		agreement_from: "",
 		agreement_to: "",
@@ -186,9 +186,6 @@ angular.module('myApp.view2', ['ngRoute'])
 		$route.reload()
 	}
 
-	function resetfunc() {
-		$('#myForm').reset();
-	}
 
 	var getKeys = function(obj){
 		var keys = [];

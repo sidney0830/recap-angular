@@ -199,15 +199,23 @@ if (!empty($_GET)) {
 		$query = $query.') ';
 	}
 
-	// Subject
-	if ($_GET['subject'] != null && count($_GET['subject']) > 0) {
-		$subject = $_GET['subject'];
-		$value = $subject;
+	// alliance_subject
+	if ($_GET['alliance_subject'] != null ) {
+		$alliance_subject = $_GET['alliance_subject'];
+		$value = $alliance_subject;
 		$query = ($has_where == false ? $query."WHERE (Subject LIKE '%$value%' " : $query."AND (Subject LIKE '%$value%'");
 		$has_where = true;
 		$query = $query.') ';
 	}
 
+  //Company
+  if ($_GET['alliance_company'] != null ) {
+    $alliance_company = $_GET['alliance_company'];
+    $value = $alliance_company;
+    $query = ($has_where == false ? $query."WHERE ( `Licensee/Buyer` LIKE '%$value%' OR `Licensor/Seller` LIKE '%$value%'" : $query."AND (`Licensor/Seller` LIKE '%$value%' OR `Licensee/Buyer` LIKE '%$value%'");
+    $has_where = true;
+    $query = $query.') ';
+  }
 //	echo $query;
 
 	//$query = $query."LIMIT 10";

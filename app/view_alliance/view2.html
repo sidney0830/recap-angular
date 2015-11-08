@@ -10,13 +10,16 @@ subm<div id="alliance_search">
     <div>
 
     <div class="onediv">
-      <label for="company">Company:  </label>
-      <input type="text" id="company" ng-model="data.company">
+      <label for="alliance_company">Company:  </label>
+      <input type="text" id="alliance_company" class="alliance_company" ng-model="data.alliance_company">
+                    {{data.alliance_company}}
 
       <br><br>
 
-      <label for="subject">Subject:  </label>
-      <input type="text" id="subject" ng-model="data.subject">
+      <label for="alliance_subject">Subject:  </label>
+      <input type="text" id="alliance_subject" class="alliance_subject" ng-model="data.alliance_subject">
+
+        {{data.alliance_subject}}
     </div>
 
     <div class="onediv">
@@ -46,6 +49,7 @@ subm<div id="alliance_search">
     <br><br>
      <!-- checkbox -->
     <div class="onediv">
+    ***not sure what purpose<br>
       <input type="checkbox" name="checkbox_sth" value="filed_contracts"> Filed Contracts</input>
       <input type="checkbox" name="checkbox_sth" value="deal_snapshot"> Deal Snapshot</input>
       <input type="checkbox" name="checkbox_sth" value="financials_disclosed"> Financials Disclosed</input><br><br>
@@ -128,7 +132,7 @@ subm<div id="alliance_search">
 
 
   <div class="onediv" >
-    <h4> Therapeutic Area :</h4>
+    <h4> Therapeutic Area : not yet</h4>
       <div class="manydiv2">
       <label>Allergic:  </label>
         <select multiple id="alliance_allergic" class="alliance_allergics" ng-model="data.select_alliance_allergic" ng-options="t as t for t in input.alliance_allergic"></select>
@@ -242,7 +246,7 @@ subm<div id="alliance_search">
   </div>
 
   <div class="onediv">
-    <h4>Licensed Territory: </h4>
+    <h4>Licensed Territory: not yet</h4>
 
       <div>
         <input type="radio" name="region" value="worldwide" > Worldwide </input>
@@ -351,10 +355,9 @@ subm<div id="alliance_search">
 
 
   </form>
-
 <!-- JAVASCRIPT FOR KEY IN OBJ -->
   <hr>
-   Search Found {{data.alliance_result.length}} Alliances.
+   <div align="center">Search Found {{data.alliance_result.length}} Alliances.</div>
 
   <div style="overflow:auto;">
     <table border=1 id="tblExport">
