@@ -60,12 +60,17 @@ if (!empty($_GET)) {
       }
       $query = $query.') ';
   }
+
 // contract text
   if ($contract_text != null ) {
-      // $value = array_shift($contract_text);
       $query = ($has_where == false ? $query."WHERE ( Agreement LIKE '%$contract_text %' " : $query."AND (Agreement LIKE '%$contract_text %'");
+      $has_where = true;
+      $query = $query.') ';
+  }
 
-      // $query =$query."WHERE `Agreement` LIKE '%$contract_text %' ";
+//contract company //not sure before"/" or after "/"
+   if ($contract_company != null ) {
+      $query = ($has_where == false ? $query."WHERE ( Agreement LIKE '%$contract_company %' " : $query."AND (Agreement LIKE '%$contract_company %'");
       $has_where = true;
       $query = $query.') ';
   }
@@ -89,7 +94,9 @@ if (!empty($_GET)) {
 
   echo json_encode($rows);
   // echo json_last_error(); //debug use
-
+  $arr = array();
+  $arr[0]=10;
+  // echo json_encode($arr);
 
 }
 ?>

@@ -7,11 +7,13 @@
     <div ng-class="{true: 'loader', false: ''}[data.in_progressing]"></div>
 
     <form ng-submit="submit()">
+
+         <input type="button" ng-click="reset()" value="Reset" />
         <div class="onediv">
-        
+
           <label for="contract_company">Company:  </label>
           <input type="text" id="contract_company" class="contract_company" ng-model="data.contract_company">
-                    {{data.contract_com}}
+                    {{data.contract_company}}
           <br><br>
 
           <label for="contract_text">Contract text:  </label>
@@ -63,8 +65,8 @@
 
     <hr>
 
-
-
+    Search Found {{data.contract_result.length}} Contracts.
+    <!-- <tr ng-repeat="(key, val) in data.contract_result[0]"></tr> -->
 
     <div style="overflow:auto;">
         <table id="tblExport2" border=1>

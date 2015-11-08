@@ -59,6 +59,13 @@ angular.module('myApp.view1', ['ngRoute'])
     }
 
 
+    $scope.master={};
+
+    $scope.reset = function() {
+        $scope.data = angular.copy($scope.master);
+        $('.parties')[0].sumo.unSelectAll();
+    };
+
 
     var getKeys = function(obj){
         var keys = [];
