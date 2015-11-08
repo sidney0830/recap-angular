@@ -17,6 +17,7 @@ if (!empty($_GET)) {
   }
 
   mysql_select_db('recapnew');
+  //mysql_select_db('recap');
   mysql_set_charset('utf8');
   // $conn= mysql_connect('140.113.117.125','root','root');
 
@@ -63,7 +64,7 @@ if (!empty($_GET)) {
   if ($contract_text != null ) {
       // $value = array_shift($contract_text);
       $query = ($has_where == false ? $query."WHERE ( Agreement LIKE '%$contract_text %' " : $query."AND (Agreement LIKE '%$contract_text %'");
-      
+
       // $query =$query."WHERE `Agreement` LIKE '%$contract_text %' ";
       $has_where = true;
       $query = $query.') ';
@@ -76,7 +77,7 @@ if (!empty($_GET)) {
   //     // $query = $query.') ';
   // }
 
-  // $arrayName = array('result:' => $queery );
+  // $arrayName = array('result:' => $query );
   // echo json_encode($arrayName);
 
   $result = mysql_query($query) or die('MySQL query error');
