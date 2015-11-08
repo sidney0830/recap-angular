@@ -199,6 +199,18 @@ if (!empty($_GET)) {
 		$query = $query.') ';
 	}
 
+    if ($_GET['select_alliance_exclusiv'] != null && count($_GET['select_alliance_exclusiv']) > 0) {
+    $exclusiv = $_GET['select_alliance_exclusiv'];
+    $value = array_shift($exclusiv);
+    $query = ($has_where == false ? $query."WHERE (Exclusivity LIKE '$value' " : $query."AND (Exclusivity LIKE '$value'");
+    $has_where = true;
+
+    foreach($exclusiv as $value) {
+      $query = $query." OR Exclusivity LIKE '$value'";
+    }
+    $query = $query.') ';
+  }
+
 	// alliance_subject
 	if ($_GET['alliance_subject'] != null ) {
 		$alliance_subject = $_GET['alliance_subject'];
