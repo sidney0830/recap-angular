@@ -9,7 +9,7 @@ angular.module('myApp.view2', ['ngRoute'])
 	});
 }])
 
-.controller('View2Ctrl', ['$scope', '$http', '$document', function($scope, $http, $document) {
+.controller('View2Ctrl', ['$scope', '$http', '$document', '$route', function($scope, $http, $document, $route) {
 
 
 	$scope.input = {
@@ -141,9 +141,10 @@ angular.module('myApp.view2', ['ngRoute'])
 		total_milestone_payment_less: "",
 		profit_split_greater: "",
 		profit_split_less: "",
-		alliance_result: "",
-		in_progressing: false
+		alliance_result: ""
 	}
+
+	$scope.in_progressing = false
 
 
 	$scope.submit = function() {
@@ -153,9 +154,9 @@ angular.module('myApp.view2', ['ngRoute'])
 
 		$scope.data.alliance_result = ""
 
-		$scope.data.in_progressing = true
+		$scope.in_progressing = true
 
-		// $scope.data.in_progressing = true;
+		// $scope.in_progressing = true;
 		console.log($scope.data)
 		console.log('webservice/alliances.php?' + $.param($scope.data))
 
@@ -176,9 +177,14 @@ angular.module('myApp.view2', ['ngRoute'])
 			}
 			$scope.data.alliance_result = data
 			$scope.data.header = getKeys($scope.data.alliance_result[0])
-			$scope.data.in_progressing = false
+			$scope.in_progressing = false
 		})
 
+	}
+
+	$scope.reset = function() {
+		// trick, we reset form by reloading page
+		$route.reload()
 	}
 
 	function resetfunc() {

@@ -9,7 +9,7 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', ['$scope', '$http', function($scope, $http) {
+.controller('View1Ctrl', ['$scope', '$http', '$route', function($scope, $http, $route) {
 
 
     Object.size = function(obj) {
@@ -59,11 +59,8 @@ angular.module('myApp.view1', ['ngRoute'])
     }
 
 
-    $scope.master={};
-
     $scope.reset = function() {
-        $scope.data = angular.copy($scope.master);
-        $('.parties')[0].sumo.unSelectAll();
+	$route.reload()
     };
 
 
