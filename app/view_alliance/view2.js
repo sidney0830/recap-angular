@@ -171,7 +171,6 @@ angular.module('myApp.view2', ['ngRoute'])
 						// trim first and last comma
 						data[index][key] = data[index][key].replace(/(^,)|(,$)/g, "")
 						data[index][key] = data[index][key].split(",")
-						console.log(data[index][key])
 					}
 				}
 			}
