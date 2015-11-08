@@ -35,7 +35,7 @@ width:80px;
 
 h3 {display : inline}
 .manydiv{
-   /*position: relative;*/
+   position: relative;
   float:left;
   width:21%;
   height:160px;
@@ -52,8 +52,8 @@ h3 {display : inline}
 .manydiv2{
    /*position: relative;*/
   float:left;
-  width:45%;
-  height:3%;
+  width:300px;
+  height:50px;
   padding-left:10px;
   padding-bottom:10px;
   /*border : solid #000002 1px;*/
@@ -65,7 +65,8 @@ h3 {display : inline}
   margin-left: 10px;
 }
 .onediv{
-   /*position: relative;*/
+  position: relative;
+   display:inline-block;
   float:left;
   width:95%;
   padding-left:20px;
@@ -81,6 +82,15 @@ h3 {display : inline}
   margin-right: 10px;
   margin-left: 10px;
 }
+
+
+.divbottom{
+
+
+
+
+
+}
 input[type="number"]
 {
    /*width:63px;*/
@@ -92,7 +102,12 @@ input[type=submit] {
   color:#fff;
   background:#bbb;
   border:0 none;
-cursor:pointer;
+  cursor:pointer;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 /*-webkit-border-radius: 5px;*/
 border-radius: 5px; }
 

@@ -3,7 +3,11 @@ subm<div id="alliance_search">
 
   <div ng-class="{true: 'loader', false: ''}[data.in_progressing]"></div>
 
-  <form ng-submit="submit()">
+  <form ng-submit="submit()" id="myform">
+
+    <div id="resetbutton" >
+      <input type="button" ng-click="reset()" value="Reset" />
+    <div>
 
     <div class="onediv">
       <label for="company">Company:  </label>
@@ -22,9 +26,9 @@ subm<div id="alliance_search">
     <br><br>
 
     <label>Alliance Type: </label>
-    <select multiple  id="alliance_types" class="alliance_types" ng-model="data.select_alliance_types" ng-options="t as t for t in input.alliance_types"></select>
+    <select multiple  id="alliance_types" class="alliance_types" ng-model="data.select_alliance_types" ng-options="key as value for (key, value) in input.alliance_types"></select>
     {{data.select_alliance_types}}
-    <label> "Acquisition","Asset Purchase","Assignment","Co-Development","Co-Market","Co-Promotion","Collaboration","Cross-license","Development","Distribution","Equity","Joint Venture","Letter of Intent","License","Loan","Manufacturing","Marketing","Merger","Option","Research","Security","Settlement","Sublicense","Supply","Termination","Warrant"</label>
+    <!-- <label> "Acquisition","Asset Purchase","Assignment","Co-Development","Co-Market","Co-Promotion","Collaboration","Cross-license","Development","Distribution","Equity","Joint Venture","Letter of Intent","License","Loan","Manufacturing","Marketing","Merger","Option","Research","Security","Settlement","Sublicense","Supply","Termination","Warrant"</label> -->
 
     <br><br>
 
@@ -239,11 +243,96 @@ subm<div id="alliance_search">
 
   <div class="onediv">
     <h4>Licensed Territory: </h4>
-  </div>
-    <!-- submit button -->
-    <br>
 
-    
+      <div>
+        <input type="radio" name="region" value="worldwide" > Worldwide </input>
+        <input type="radio" name="region" value="reginal" > Regional Territory</input>
+      </div>
+      <div class="regional_show">
+        <div class="manydiv2">
+          <label>Asia:  </label>
+          <select multiple id="alliance_asia" class="alliance_asia" ng-model="data.select_alliance_asia" ng-options="t as t for t in input.alliance_asia">
+          </select>
+        </div>
+
+        <div class="manydiv2">
+          <label>Africa:  </label>
+          <select multiple id="alliance_africa" class="alliance_africa" ng-model="data.select_alliance_africa" ng-options="t as t for t in input.alliance_africa">
+          </select>
+        </div>
+
+
+        <div class="manydiv2">
+          <label>Europe:  </label>
+          <select multiple id="alliance_europe" class="alliance_europe" ng-model="data.select_alliance_europe" ng-options="t as t for t in input.alliance_europe">
+          </select>
+        </div>
+
+
+        <div class="manydiv2">
+          <label>Mideast:  </label>
+          <select multiple id="alliance_mideast" class="alliance_mideast" ng-model="data.select_alliance_mideast" ng-options="t as t for t in input.alliance_mideast">
+          </select>
+        </div>
+
+
+        <div class="manydiv2">
+          <label>North America:  </label>
+          <select multiple id="alliance_northamerica" class="alliance_northamerica" ng-model="data.select_alliance_northamerica" ng-options="t as t for t in input.alliance_northamerica">
+          </select>
+        </div>
+
+
+        <div class="manydiv2">
+          <label>South America:  </label>
+          <select multiple id="alliance_southamerica" class="alliance_southamerica" ng-model="data.select_alliance_southamerica" ng-options="t as t for t in input.alliance_southamerica">
+          </select>
+        </div>
+
+
+      </div>      <!-- reginal show -->
+
+      <br>
+
+
+      <div style="font-style: italic; font-weight: bold;">
+        <p> **NOTE: Territory data is not indexed for all deals. Some territory data may also be retrieved by using the “Subject Text Search” box at the top of this page.
+        </p>
+      </div>
+
+
+
+
+
+  </div>
+
+
+  <div class="onediv" id="yoo">
+     <h4>Contractual Data: </h4>
+
+      <div class="manydiv2">
+          <label>Disclosure of Terms: </label>
+          <select multiple id="alliance_disclosure" class="alliance_disclosure" ng-model="data.select_alliance_disclosure" ng-options="t as t for t in input.alliance_disclosure">
+          </select>
+      </div>
+
+      <div class="manydiv2">
+          <label>License Exclusivity:  </label>
+          <select multiple id="alliance_exclusiv" class="alliance_exclusiv" ng-model="data.select_alliance_exclusiv" ng-options="t as t for t in input.alliance_exclusiv">
+          </select>
+      </div>
+
+
+  </div>
+
+
+
+
+    <div class="bottom" align="center">
+
+      <input type="submit" value="Submit"><!-- submit button -->
+
+
 
     <!-- <div align="center">
 
@@ -256,25 +345,39 @@ subm<div id="alliance_search">
     <div>
         <button type="button" ng-csv="data.alliance_result" csv-header="['Alliance Summary','Has Analysis','Has Contract','Licensor/Seller','Licensee/Buyer','Date','Amendment Date','Type','Stage','Subject','Size','Upfront','Equity','RD Amt','Tot Milestone Amt','AdjMilestone Amt','Sales Milestones','Royalty','Profit Split','Transfer Price','Marketing Fee','Disease','Condition','Technology','License Region','License Country','Exclusivity','Parties']" filename="test.csv">Export to csvv</button>
         {{data.header}}
-      </div>
+    </div>
+
+  </div>
+
 
   </form>
 
 <!-- JAVASCRIPT FOR KEY IN OBJ -->
   <hr>
+   Search Found {{data.alliance_result.length}} Alliances.
+
   <div style="overflow:auto;">
     <table border=1 id="tblExport">
         <tr>
             <th ng-repeat="(key, val) in data.alliance_result[0]">{{key}}</th>
         </tr>
         <tr ng-repeat="item in data.alliance_result">
-            <td ng-repeat="(key, value) in item">{{value}}</td>
+            <td ng-repeat="(key, value) in item">
+		<div ng-switch on="key">
+			<div ng-switch-when="Type">
+				<div ng-repeat="abbreviation in value">
+					<!-- <label ng-show='!$first'>,</label> {{input.alliance_types[abbreviation]}} -->
+					{{input.alliance_types[abbreviation]}}
+				</div>
+			</div>
+			<div ng-switch-default>
+				{{value}}
+			</div>
+		</div>
+	    </td>
         </tr>
     </table>
   </div>
 
-  <div align="center">
-      <input type="submit" value="Submit">
-    </div>
 
 </div>

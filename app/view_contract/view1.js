@@ -9,7 +9,7 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', ['$scope', '$http', function($scope, $http) {
+.controller('View1Ctrl', ['$scope', '$http', '$route', function($scope, $http, $route) {
 
 
     Object.size = function(obj) {
@@ -25,7 +25,7 @@ angular.module('myApp.view1', ['ngRoute'])
         contract_parties: ["Pharma-Biotech" ,"Biotech-Biotech" ,"Pharma-Pharma" ,"University-Biotech" ,"Non-Medical"],
         select_contact_parties: "",
         select_contract_types: "",
-        company: "",
+        contract_company: "",
         contract_text: "",
         from: "",
         until: "",
@@ -59,6 +59,10 @@ angular.module('myApp.view1', ['ngRoute'])
     }
 
 
+    $scope.reset = function() {
+	$route.reload()
+    };
+
 
     var getKeys = function(obj){
         var keys = [];
@@ -70,9 +74,9 @@ angular.module('myApp.view1', ['ngRoute'])
 
     $scope.$on('$viewContentLoaded', function(){
         //Here your view content is fully loaded !!
-        $('.parties').SumoSelect({selectAll: true});
-        $('.contract_types').SumoSelect({selectAll: true});
-    });
+        $('.parties').SumoSelect({selectAll: true})
+        $('.contract_types').SumoSelect({selectAll: true})
+    })
 
 
 }]);

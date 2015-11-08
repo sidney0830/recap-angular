@@ -17,6 +17,7 @@ if (!empty($_GET)) {
   }
 
   mysql_select_db('recapnew');
+  //mysql_select_db('recap');
   mysql_set_charset('utf8');
   // $conn= mysql_connect('140.113.117.125','root','root');
 
@@ -24,6 +25,7 @@ if (!empty($_GET)) {
   $until = $_GET['until'];
   $contract_type = $_GET['select_contract_types'];
   $contract_text = $_GET['contract_text'];
+  $contract_company = $_GET['contract_company'];
   $parties = $_GET['select_contact_parties'];
 
 
@@ -36,7 +38,7 @@ if (!empty($_GET)) {
     $query = ($has_where == false ? $query."WHERE Contract_Date BETWEEN '$from' AND '$until' " : $query."AND Contract_Date BETWEEN '$from' AND '$until' ");
     $has_where = true;
   }
-
+//contract type
   if ($contract_type != null && count($contract_type) > 0) {
       $value = array_shift($contract_type);
       $query = ($has_where == false ? $query."WHERE (Contract_Type LIKE '%$value%'" : $query."AND (Contract_Type LIKE '%$value%'");
@@ -47,7 +49,7 @@ if (!empty($_GET)) {
       }
       $query = $query.') ';
   }
-
+//parties
   if ($parties != null && count($parties) > 0) {
       $value = array_shift($parties);
       $query = ($has_where == false ? $query."WHERE (Parties LIKE '%$value%' " : $query."AND (Parties LIKE '%$value%'");
@@ -59,7 +61,29 @@ if (!empty($_GET)) {
       $query = $query.') ';
   }
 
-  // echo $query;
+// contract text
+  if ($contract_text != null ) {
+      $query = ($has_where == false ? $query."WHERE ( Agreement LIKE '%$contract_text %' " : $query."AND (Agreement LIKE '%$contract_text %'");
+      $has_where = true;
+      $query = $query.') ';
+  }
+
+//contract company //not sure before"/" or after "/"
+   if ($contract_company != null ) {
+      $query = ($has_where == false ? $query."WHERE ( Agreement LIKE '%$contract_company %' " : $query."AND (Agreement LIKE '%$contract_company %'");
+      $has_where = true;
+      $query = $query.') ';
+  }
+
+  //  if ($contract_text != null ) {
+  //     // $value = array_shift($contract_text);
+  //     $query = ($has_where == false ? $query."WHERE CONTAINS(Agreement, '%$value%' ) " : $query."AND CONTAINS(Agreement, '%$value%' )");
+  //     $has_where = true;
+  //     // $query = $query.') ';
+  // }
+
+  // $arrayName = array('result:' => $query );
+  // echo json_encode($arrayName);
 
   $result = mysql_query($query) or die('MySQL query error');
   $is_first = true;
@@ -70,7 +94,9 @@ if (!empty($_GET)) {
 
   echo json_encode($rows);
   // echo json_last_error(); //debug use
-
+  $arr = array();
+  $arr[0]=10;
+  // echo json_encode($arr);
 
 }
 ?>
