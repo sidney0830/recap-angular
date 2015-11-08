@@ -8,7 +8,7 @@
     <div id="resetbutton" >
       <input type="reset" value="Reset form">
     <div>
-    
+
     <div class="onediv">
       <label for="company">Company:  </label>
       <input type="text" id="company" ng-model="data.company">
@@ -243,11 +243,11 @@
 
   <div class="onediv">
     <h4>Licensed Territory: </h4>
-      
+
       <div>
         <input type="radio" name="region" value="worldwide" > Worldwide </input>
         <input type="radio" name="region" value="reginal" > Regional Territory</input>
-      </div> 
+      </div>
       <div class="regional_show">
         <div class="manydiv2">
           <label>Asia:  </label>
@@ -293,7 +293,7 @@
       </div>      <!-- reginal show -->
 
       <br>
-      
+
 
       <div style="font-style: italic; font-weight: bold;">
         <p> **NOTE: Territory data is not indexed for all deals. Some territory data may also be retrieved by using the “Subject Text Search” box at the top of this page.
@@ -345,7 +345,7 @@
         <button type="button" ng-csv="data.alliance_result" csv-header="['Alliance Summary','Has Analysis','Has Contract','Licensor/Seller','Licensee/Buyer','Date','Amendment Date','Type','Stage','Subject','Size','Upfront','Equity','RD Amt','Tot Milestone Amt','AdjMilestone Amt','Sales Milestones','Royalty','Profit Split','Transfer Price','Marketing Fee','Disease','Condition','Technology','License Region','License Country','Exclusivity','Parties']" filename="test.csv">Export to csvv</button>
         {{data.header}}
     </div>
-  
+
   </div>
 
 
@@ -362,7 +362,10 @@
             <td ng-repeat="(key, value) in item">
 		<div ng-switch on="key">
 			<div ng-switch-when="Type">
-				{{input.alliance_types[value]}}
+				<div ng-repeat="abbreviation in value">
+					<!-- <label ng-show='!$first'>,</label> {{input.alliance_types[abbreviation]}} -->
+					{{input.alliance_types[abbreviation]}}
+				</div>
 			</div>
 			<div ng-switch-default>
 				{{value}}

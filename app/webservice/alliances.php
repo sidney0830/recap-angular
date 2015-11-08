@@ -10,6 +10,7 @@ header('Content-Type: application/json; charset=utf-8');
 if (!empty($_GET)) {
 	mysql_connect('140.113.117.125','root','root');
 	mysql_select_db('recapnew');
+	//mysql_select_db('recap');
 	mysql_set_charset('utf8');
 
 	$has_where = false;
@@ -161,11 +162,13 @@ if (!empty($_GET)) {
 	if ($_GET['select_alliance_types'] != null && count($_GET['select_alliance_types']) > 0) {
 		$types = $_GET['select_alliance_types'];
 		$value = array_shift($types);
-		$query = ($has_where == false ? $query."WHERE BINARY (Type LIKE '%$value%' " : $query."AND BINARY (Type LIKE '%$value%'");
+		//$query = ($has_where == false ? $query."WHERE BINARY (Type LIKE '%$value%' " : $query."AND BINARY (Type LIKE '%$value%'");
+		$query = ($has_where == false ? $query."WHERE BINARY (Type LIKE '%$value,%' OR Type LIKE '$value' " : $query."AND BINARY (Type LIKE '%$value,%' OR Type LIKE '$value' ");
 		$has_where = true;
 
 		foreach($types as $value) {
-			$query = $query." OR Type LIKE '%$value%'";
+			//$query = $query." OR Type LIKE '%$value%'";
+			$query = $query." OR Type LIKE '%$value,%' OR Type LIKE '$value' ";
 		}
 		$query = $query.') ';
 	}
@@ -205,9 +208,9 @@ if (!empty($_GET)) {
 		$query = $query.') ';
 	}
 
-	// echo $query;
+//	echo $query;
 
-	$query = $query."LIMIT 10";
+	//$query = $query."LIMIT 10";
 
 	$result = mysql_query($query) or die('MySQL query error');
 	$is_first = true;

@@ -163,9 +163,19 @@ angular.module('myApp.view2', ['ngRoute'])
 			url: 'webservice/alliances.php?' + $.param($scope.data)
 		}).success(function(data) {
 			console.log(data)
-				$scope.data.alliance_result = data
-				$scope.data.header = getKeys($scope.data.alliance_result[0])
-				$scope.data.in_progressing = false
+			for (var index in data) {
+				for (var key in data[index]) {
+					if (key == 'Type') {
+						// trim first and last comma
+						data[index][key] = data[index][key].replace(/(^,)|(,$)/g, "")
+						data[index][key] = data[index][key].split(",")
+						console.log(data[index][key])
+					}
+				}
+			}
+			$scope.data.alliance_result = data
+			$scope.data.header = getKeys($scope.data.alliance_result[0])
+			$scope.data.in_progressing = false
 		})
 
 	}

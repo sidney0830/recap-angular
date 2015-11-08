@@ -17,6 +17,7 @@ if (!empty($_GET)) {
   }
 
   mysql_select_db('recapnew');
+  //mysql_select_db('recap');
   mysql_set_charset('utf8');
   // $conn= mysql_connect('140.113.117.125','root','root');
 
@@ -66,7 +67,7 @@ if (!empty($_GET)) {
   //     // $query = $query.') ';
   // }
 
-  echo $query;
+ // echo $query;
 
   $result = mysql_query($query) or die('MySQL query error');
   $is_first = true;
