@@ -228,7 +228,32 @@ if (!empty($_GET)) {
     $has_where = true;
     $query = $query.') ';
   }
-//	echo $query;
+// allergic 
+  // if ($_GET['select_alliance_allergic'] != null && count($_GET['select_alliance_allergic']) > 0) {
+  //   ////////////help 
+  //   $allergic = $_GET['select_alliance_allergic'];
+  //   $count_temp=count($allergic);
+  //   if($count_temp==5){
+  //     $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Allergic%' " : $query."AND ( `Disease` LIKE '%Allergic%'");
+  //     $has_where = true;
+  //     $query = $query.') ';
+  //   }
+  //   else{
+      
+  //     $value = array_shift($allergic);
+  //     $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
+  //     $has_where = true;
+
+  //     foreach($allergic as $value) {
+  //       $query = $query." OR Condition LIKE '%$value%'";
+  //     }
+  //     $query = $query.') ';
+  //   }
+  // }
+
+
+
+  //	echo $query;
 
 	//$query = $query."LIMIT 10";
 
