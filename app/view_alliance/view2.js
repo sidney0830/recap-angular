@@ -159,7 +159,8 @@ angular.module('myApp.view2', ['ngRoute'])
 		// $scope.in_progressing = true;
 		console.log($scope.data)
 		console.log('webservice/alliances.php?' + $.param($scope.data))
-
+        console.log('-------------------')
+        // console.log($scope.data[0].length)
 		$http({
 			method: 'get',
 			url: 'webservice/alliances.php?' + $.param($scope.data)
@@ -171,7 +172,7 @@ angular.module('myApp.view2', ['ngRoute'])
 						// trim first and last comma
 						data[index][key] = data[index][key].replace(/(^,)|(,$)/g, "")
 						data[index][key] = data[index][key].split(",")
-						console.log(data[index][key])
+						// console.log(data[index][key])
 					}
 				}
 			}

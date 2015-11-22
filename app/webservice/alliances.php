@@ -7,6 +7,31 @@ date_default_timezone_set('Asia/Taipei');
 
 header('Content-Type: application/json; charset=utf-8');
 
+$Therapeutic_array=array(
+    "select_alliance_allergic",
+    "select_alliance_autoimmune",
+    "select_alliance_bone",
+    "select_alliance_cancer",
+    "select_alliance_cardi",
+    "select_alliance_centr",
+    "select_alliance_dental",
+    "select_alliance_derma",
+    "select_alliance_endoc",
+    "select_alliance_gastro",
+    "select_alliance_genit",
+    "select_alliance_hemato",
+    "select_alliance_infectb",
+    "select_alliance_infectv",
+    "select_alliance_infectm",
+    "select_alliance_liver",
+    "select_alliance_opht",
+    "select_alliance_psy",
+    "select_alliance_renal",
+    "select_alliance_resp",
+    "select_alliance_trans",
+    "select_alliance_other",
+);
+
 if (!empty($_GET)) {
 	mysql_connect('140.113.117.125','root','root');
 	mysql_select_db('recapnew');
@@ -269,15 +294,40 @@ if (!empty($_GET)) {
       $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
       $has_where = true;
 
-      foreach($autoimmune as $value) {
+      foreach($Autoimmune as $value) {
         $query = $query." OR `Condition` LIKE '%$value%'";
       }
       $query = $query.') ';
     }
   }
 
+  $i=0;
+  foreach($Therapeutic_array as $selected)
+  {
+    //Bone Disease
+    if ($_GET['$selected'] != null && count($_GET['$selected']) > 0) {
+      ////////////help 
+      $a = $_GET['selected'];
+      $count_temp=count($a);
 
+      if($count_temp==7){
+        $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Autoimmune%' " : $query."AND ( `Disease` LIKE '%Autoimmune%'");
+        $has_where = true;
+        $query = $query.') ';
+      }
+      else{
+        
+        $value = array_shift($autoimmune);
+        $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
+        $has_where = true;
 
+        foreach($Autoimmune as $value) {
+          $query = $query." OR `Condition` LIKE '%$value%'";
+        }
+        $query = $query.') ';
+      }
+    }
+  }
 
   //	echo $query;
 
