@@ -202,11 +202,11 @@ if (!empty($_GET)) {
     if ($_GET['select_alliance_exclusiv'] != null && count($_GET['select_alliance_exclusiv']) > 0) {
     $exclusiv = $_GET['select_alliance_exclusiv'];
     $value = array_shift($exclusiv);
-    $query = ($has_where == false ? $query."WHERE (Exclusivity LIKE '$value' " : $query."AND (Exclusivity LIKE '$value'");
+    $query = ($has_where == false ? $query."WHERE ( `Exclusivity` LIKE '$value' " : $query."AND ( `Exclusivity` LIKE '$value'");
     $has_where = true;
 
     foreach($exclusiv as $value) {
-      $query = $query." OR Exclusivity LIKE '$value'";
+      $query = $query." OR `Exclusivity` LIKE '$value'";
     }
     $query = $query.') ';
   }
@@ -215,7 +215,7 @@ if (!empty($_GET)) {
 	if ($_GET['alliance_subject'] != null ) {
 		$alliance_subject = $_GET['alliance_subject'];
 		$value = $alliance_subject;
-		$query = ($has_where == false ? $query."WHERE (Subject LIKE '%$value%' " : $query."AND (Subject LIKE '%$value%'");
+		$query = ($has_where == false ? $query."WHERE (`Subject` LIKE '%$value%' " : $query."AND (`Subject` LIKE '%$value%'");
 		$has_where = true;
 		$query = $query.') ';
 	}
@@ -228,7 +228,58 @@ if (!empty($_GET)) {
     $has_where = true;
     $query = $query.') ';
   }
-//	echo $query;
+// allergic 
+  if ($_GET['select_alliance_allergic'] != null && count($_GET['select_alliance_allergic']) > 0) {
+    ////////////help 
+    $allergic = $_GET['select_alliance_allergic'];
+    $count_temp=count($allergic);
+
+    if($count_temp==5){
+      $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Allergic%' " : $query."AND ( `Disease` LIKE '%Allergic%'");
+      $has_where = true;
+      $query = $query.') ';
+    }
+    else{
+      
+      $value = array_shift($allergic);
+      $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
+      $has_where = true;
+
+      foreach($allergic as $value) {
+        $query = $query." OR `Condition` LIKE '%$value%'";
+      }
+      $query = $query.') ';
+    }
+  }
+
+// autoimmune 
+  if ($_GET['select_alliance_autoimmune'] != null && count($_GET['select_alliance_autoimmune']) > 0) {
+    ////////////help 
+    $autoimmune = $_GET['select_alliance_autoimmune'];
+    $count_temp=count($autoimmune);
+
+    if($count_temp==7){
+      $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Autoimmune%' " : $query."AND ( `Disease` LIKE '%Autoimmune%'");
+      $has_where = true;
+      $query = $query.') ';
+    }
+    else{
+      
+      $value = array_shift($autoimmune);
+      $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
+      $has_where = true;
+
+      foreach($autoimmune as $value) {
+        $query = $query." OR `Condition` LIKE '%$value%'";
+      }
+      $query = $query.') ';
+    }
+  }
+
+
+
+
+  //	echo $query;
 
 	//$query = $query."LIMIT 10";
 
