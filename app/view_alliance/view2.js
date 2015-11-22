@@ -89,6 +89,7 @@ angular.module('myApp.view2', ['ngRoute'])
 		select_alliance_types: "",
 		select_alliance_technologies: "",
 		select_alliance_stages: '',
+        
 		select_alliance_allergic: '',
 		select_alliance_autoimmune: '',
 		select_alliance_bone: '',
