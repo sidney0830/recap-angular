@@ -33,8 +33,10 @@ if (!empty($_GET)) {
   $query = "SELECT * FROM contract ";
 
   if (($from != null) && ($until != null)) {
-    $from = date('Y-m-d', strtotime($from));
-    $until = date('Y-m-d', strtotime($until));
+     $_GET['from'] = explode("(", $_GET['from'])[0];
+     $_GET['until'] = explode("(", $_GET['until'])[0];
+     $from = date('Y-m-d', strtotime($_GET['from']));
+     $until = date('Y-m-d', strtotime($_GET['until']));
     $query = ($has_where == false ? $query."WHERE Contract_Date BETWEEN '$from' AND '$until' " : $query."AND Contract_Date BETWEEN '$from' AND '$until' ");
     $has_where = true;
   }
@@ -94,9 +96,6 @@ if (!empty($_GET)) {
 
   echo json_encode($rows);
   // echo json_last_error(); //debug use
-  $arr = array();
-  $arr[0]=10;
-  // echo json_encode($arr);
 
 }
 ?>
