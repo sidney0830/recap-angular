@@ -17,28 +17,28 @@ $ssssss = [
 $Therapeutic_array=array(
 
 
- array("select_alliance_allergic",5,"Allergic"),
-array("select_alliance_autoimmune",7,"Autoimmune"),
-array("select_alliance_bone",5,"Bone Disease"),
-array("select_alliance_cancer",22,"Cancer"),
-array("select_alliance_cardi",12,"Cardiovascular"),
-array("select_alliance_centr",13,"Central Nervous System"),
-array("select_alliance_dental",5,"Dental/Oral"),
+	array("select_alliance_allergic",5,"Allergic"),
+	array("select_alliance_autoimmune",7,"Autoimmune"),
+	array("select_alliance_bone",5,"Bone Disease"),
+	array("select_alliance_cancer",22,"Cancer"),
+	array("select_alliance_cardi",12,"Cardiovascular"),
+	array("select_alliance_centr",13,"Central Nervous System"),
+	array("select_alliance_dental",5,"Dental/Oral"),
 	array("select_alliance_derma",10,"Dermatologic"),
 	array("select_alliance_endoc",9,"Endocrinological & Metabolic"),
-array("select_alliance_gastro",8,"Gastrointestinal"),
-array("select_alliance_genit",6,"Genitourinary/Gynecologic"),
-array("select_alliance_hemato",10,"Hematologic"),
-array("select_alliance_infectb",9,"Infectious-Bacterial"),
-array("select_alliance_infectv",10,"Infectious-Viral"),
-array("select_alliance_infectm",4,"Infectious-Miscellaneous"),
-array("select_alliance_liver",7,"Liver & Gallbladder Diseases"),
-array("select_alliance_opht",8,"Ophthalmic"),
-array("select_alliance_psy",7,"Psychiatric"),
-array("select_alliance_renal",5,"Renal"),
-array("select_alliance_resp",8,"Respiratory"),
-array("select_alliance_trans",5,"Transplantation"),
-array("select_alliance_other",8,"Other/Miscellaneous")
+	array("select_alliance_gastro",8,"Gastrointestinal"),
+	array("select_alliance_genit",6,"Genitourinary/Gynecologic"),
+	array("select_alliance_hemato",10,"Hematologic"),
+	array("select_alliance_infectb",9,"Infectious-Bacterial"),
+	array("select_alliance_infectv",10,"Infectious-Viral"),
+	array("select_alliance_infectm",4,"Infectious-Miscellaneous"),
+	array("select_alliance_liver",7,"Liver & Gallbladder Diseases"),
+	array("select_alliance_opht",8,"Ophthalmic"),
+	array("select_alliance_psy",7,"Psychiatric"),
+	array("select_alliance_renal",5,"Renal"),
+	array("select_alliance_resp",8,"Respiratory"),
+	array("select_alliance_trans",5,"Transplantation"),
+	array("select_alliance_other",8,"Other/Miscellaneous")
 
 
 
@@ -265,162 +265,15 @@ if (!empty($_GET)) {
     $has_where = true;
     $query = $query.') ';
   }
-// // allergic 
-//   if ($_GET['select_alliance_allergic'] != null && count($_GET['select_alliance_allergic']) > 0) {
-//     ////////////help 
-//     $selectedvar = $_GET['select_alliance_allergic'];
-//     $count_temp=count($selectedvar);
-
-//     if($count_temp==$Therapeutic_count["_allergic"]){
-//       $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Allergic%' " : $query."AND ( `Disease` LIKE '%Allergic%'");
-//       $has_where = true;
-//       $query = $query.') ';
-//     }
-//     else{
-      
-//       $value = array_shift($selectedvar);
-//       $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
-//       $has_where = true;
-
-//       foreach($selectedvar as $value) {
-//         $query = $query." OR `Condition` LIKE '%$value%'";
-//       }
-//       $query = $query.') ';
-//     }
-//   }
-
-// // autoimmune 
-//   if ($_GET['select_alliance_autoimmune'] != null && count($_GET['select_alliance_autoimmune']) > 0) 
-//   {
-//     ////////////help 
-//     $selectedvar = $_GET['select_alliance_autoimmune'];
-//     $count_temp=count($selectedvar);
-
-//     if($count_temp==$Therapeutic_count["_autoimmune"]){
-//       $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Autoimmune%' " : $query."AND ( `Disease` LIKE '%Autoimmune%'");
-//       $has_where = true;
-//       $query = $query.') ';
-//     }
-//     else{
-      
-//       $value = array_shift($selectedvar);
-//       $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
-//       $has_where = true;
-
-//       foreach($selectedvar as $value) {
-//         $query = $query." OR `Condition` LIKE '%$value%'";
-//       }
-//       $query = $query.') ';
-//     }
-//   }
-
-//   // bone 
-//   if ($_GET['select_alliance_bone'] != null && count($_GET['select_alliance_bone']) > 0) {
-   
-//     $selectedvar = $_GET['select_alliance_bone'];
-//     $count_temp=count($selectedvar);
-
-//     if($count_temp==$Therapeutic_count["_bone"]){
-//       $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Bone Disease%' " : $query."AND ( `Disease` LIKE '%Bone Disease%'");
-//       $has_where = true;
-//       $query = $query.') ';
-//     }
-//     else{
-      
-//       $value = array_shift($selectedvar);
-//       $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
-//       $has_where = true;
-
-//       foreach($selectedvar as $value) {
-//         $query = $query." OR `Condition` LIKE '%$value%'";
-//       }
-//       $query = $query.') ';
-//     }
-//   }
-
-//   // cancer 
-//   if ($_GET['select_alliance_cancer'] != null && count($_GET['select_alliance_cancer']) > 0) {
-   
-//     $selectedvar = $_GET['select_alliance_cancer'];
-//     $count_temp=count($selectedvar);
-
-//     if($count_temp==$Therapeutic_count["_cancer"]){
-//       $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Cancer%' " : $query."AND ( `Disease` LIKE '%Cancer%'");
-//       $has_where = true;
-//       $query = $query.') ';
-//     }
-//     else{
-      
-//       $value = array_shift($selectedvar);
-//       $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
-//       $has_where = true;
-
-//       foreach($selectedvar as $value) {
-//         $query = $query." OR `Condition` LIKE '%$value%'";
-//       }
-//       $query = $query.') ';
-//     }
-//   }
-
-// // // _cardi 
-//   if ($_GET['select_alliance_cardi'] != null && count($_GET['select_alliance_cardi']) > 0) {
-   
-//     $selectedvar = $_GET['select_alliance_cardi'];
-//     $count_temp=count($selectedvar);
-
-//     if($count_temp==$Therapeutic_count["_cardi"]){
-//       $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Cardiovascular%' " : $query."AND ( `Disease` LIKE '%Cardiovascular%'");
-//       $has_where = true;
-//       $query = $query.') ';
-//     }
-//     else{
-      
-//       $value = array_shift($selectedvar);
-//       $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
-//       $has_where = true;
-
-//       foreach($selectedvar as $value) {
-//         $query = $query." OR `Condition` LIKE '%$value%'";
-//       }
-//       $query = $query.') ';
-//     }
-//   }
-
-//   $aaa="select_alliance_centr";
-// // // Central Nervous System 
-//   if ($_GET[$aaa] != null && count($_GET[$aaa]) > 0) {
-   
-//     $selectedvar = $_GET[$aaa];
-//     $count_temp=count($selectedvar);
-
-//     if($count_temp==$Therapeutic_count["_centr"]){
-//       $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%Central Nervous System%' " : $query."AND ( `Disease` LIKE '%Central Nervous System%'");
-//       $has_where = true;
-//       $query = $query.') ';
-//     }
-//     else{
-      
-//       $value = array_shift($selectedvar);
-//       $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
-//       $has_where = true;
-
-//       foreach($selectedvar as $value) {
-//         $query = $query." OR `Condition` LIKE '%$value%'";
-//       }
-//       $query = $query.') ';
-//     }
-//   }
 
 
-// $array as list($a, $b, list($c, list($d, $e)))
-/////will try another day of Therapeutic_array
-   
-   	for ($i = 0, $num_ = count($Therapeutic_array); $i < $num_; $i++)
-  // foreach ($Therapeutic_array as list($a, $b, $c))
+
+ //Therapeutic part
+  for ($i = 0, $num_ = count($Therapeutic_array); $i < $num_; $i++)
   {
     //Bone Disease
     if ($_GET[$Therapeutic_array[$i][0]] != null && count($_GET[$Therapeutic_array[$i][0]]) > 0) {
-      ////////////help 
+      
       $selectedvar = $_GET[$Therapeutic_array[$i][1]];
       $count_temp=count($selectedvar);
       $disease_var=$Therapeutic_array[$i][2];
@@ -447,7 +300,12 @@ if (!empty($_GET)) {
 ///////////// above is  Therapeutic_array
 
 
-  //	echo $query;
+
+
+  //Region part
+
+
+  
 
 	//$query = $query."LIMIT 10";
 

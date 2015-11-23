@@ -132,7 +132,7 @@
 
 
   <div class="onediv" >
-    <h4> Therapeutic Area : not yet</h4>
+    <h4> Therapeutic Area :</h4>
       <div class="manydiv2">
       <label>Allergic:  </label>
         <select multiple id="alliance_allergic" class="alliance_allergics" ng-model="data.select_alliance_allergic" ng-options="t as t for t in input.alliance_allergic"></select>
@@ -250,10 +250,10 @@
     <h4>Licensed Territory: not yet</h4>
 
       <div>
-        <input type="radio" name="region" value="worldwide" > Worldwide </input>
-        <input type="radio" name="region" value="reginal" > Regional Territory</input>
+        <input type="radio" id="btnshow" name="region" value="worldwide" > Worldwide </input>
+        <input type="radio" id="btnhide" name="region" value="reginal" > Regional Territory</input>
       </div>
-      <div class="regional_show">
+      <div id="regional_show">
         <div class="manydiv2">
           <label>Asia:  </label>
           <select multiple id="alliance_asia" class="alliance_asia" ng-model="data.select_alliance_asia" ng-options="t as t for t in input.alliance_asia">
@@ -300,8 +300,8 @@
       <br>
 
 
-      <div style="font-style: italic; font-weight: bold;">
-        <p> **NOTE: Territory data is not indexed for all deals. Some territory data may also be retrieved by using the “Subject Text Search” box at the top of this page.
+      <div class="divbottom" style="font-style: italic; font-weight: bold;" align="bottom">
+        <p>**NOTE: Territory data is not indexed for all deals. Some territory data may also be retrieved by using the “Subject Text Search” box at the top of this page.
         </p>
       </div>
 

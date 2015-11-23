@@ -66,12 +66,12 @@ h3 {display : inline}
 }
 .onediv{
   position: relative;
-   display:inline-block;
+  display:inline-block;
   float:left;
   width:95%;
   padding-left:20px;
   padding-top:10px;
-  padding-bottom:10px;
+  padding-bottom:40px;
 
   border:  solid 2px;
   /*border-bottom:  solid 2px;*/
@@ -87,7 +87,9 @@ h3 {display : inline}
 .divbottom{
 
 
-
+position:absolute;
+bottom:0px;
+left:20px;
 
 
 }

@@ -183,7 +183,18 @@ angular.module('myApp.view2', ['ngRoute'])
 		})
 
 	}
-
+	///////-------div  show or hide ----------
+	//http://stackoverflow.com/questions/6654601/jquery-if-radio-button-is-checked
+	var conditionalContent = $('#regional_show'),
+	    
+	    group = $('input[type=radio][name=region]');
+	
+	group.change(function() {
+	 
+	 conditionalContent.toggle(group.filter(':checked').val() === 'reginal');
+	 
+	}).change();
+	
 	$scope.reset = function() {
 		// trick, we reset form by reloading page
 		$route.reload()
