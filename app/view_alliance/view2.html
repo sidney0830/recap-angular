@@ -49,7 +49,7 @@
     <br><br>
      <!-- checkbox -->
     <div class="onediv">
-    ***not sure what purpose<br>
+    no use<br>
       <input type="checkbox" name="checkbox_sth" value="filed_contracts"> Filed Contracts</input>
       <input type="checkbox" name="checkbox_sth" value="deal_snapshot"> Deal Snapshot</input>
       <input type="checkbox" name="checkbox_sth" value="financials_disclosed"> Financials Disclosed</input><br><br>
@@ -72,7 +72,7 @@
     <div class="manydiv">
       <label>Deal Size:  </label>
         <ul>
-          <label for="deal_size_greater"> Greater than $ </label>
+          <label for="deal_size_greater"> Greater than $ </label><br>
           <input type="number" id="deal_size_greater" ng-model="data.deal_size_greater"> M</input>
         </ul>
         <ul><label for="deal_size_less"> Less than $</label><br>
@@ -81,7 +81,7 @@
 
     <div class="manydiv">
       <label>Upfront Payment:  </label>
-        <ul><label for="upfront_greater"> Greater than $ </label>
+        <ul><label for="upfront_greater"> Greater than $ </label><br>
         <input type="number" id="upfront_greater" ng-model="data.upfront_greater"> M</input></ul>
         <ul><label for="upfront_less"> Less than $</label><br>
         <input type="number" id="upfront_less" ng-model="data.upfront_less"> M</input></ul>
@@ -89,7 +89,7 @@
 
     <div class="manydiv">
       <label>Royalty Rate:  </label>
-        <ul><label for="royalty_greater"> Greater than $ </label>
+        <ul><label for="royalty_greater"> Greater than $ </label><br>
         <input type="number" id="royalty_greater" ng-model="data.royalty_greater"> %</input></ul>
         <ul><label for="royalty_less"> Less than $</label><br>
         <input type="number" id="royalty_less" ng-model="data.royalty_less"> %</input></ul>
@@ -97,7 +97,7 @@
 
     <div class="manydiv">
       <label>Equity:  </label>
-        <ul><label for="equity_greater"> Greater than $</label>
+        <ul><label for="equity_greater"> Greater than $</label><br>
         <input type="number" id="equity_greater" ng-model="data.equity_greater"> M</input></ul>
         <ul><label for="equity_less"> Less than $</label><br>
         <input type="number" id="equity_less" ng-model="data.equity_less"> M</input></ul>
@@ -105,7 +105,7 @@
 
     <div class="manydiv">
       <label>R&D Payment:  </label>
-        <ul><label for="rd_payment_greater"> Greater than $</label>
+        <ul><label for="rd_payment_greater"> Greater than $</label><br>
         <input type="number" id="rd_payment_greater" ng-model="data.rd_payment_greater"> M</input></ul>
         <ul><label for="rd_payment_less"> Less than $</label><br>
         <input type="number" id="rd_payment_less" ng-model="data.rd_payment_less"> M</input></ul>
@@ -113,7 +113,7 @@
 
     <div class="manydiv">
       <label>Total Milestone Payment:  </label>
-        <ul><label for="total_milestone_payment_greater"> Greater than $</label>
+        <ul><label for="total_milestone_payment_greater"> Greater than $</label><br>
         <input type="number" id="total_milestone_payment_greater" ng-model="data.total_milestone_payment_greater"> M</input></ul>
         <ul><label for="total_milestone_payment_less"> Less than $</label><br>
         <input type="number" id="total_milestone_payment_less" ng-model="data.total_milestone_payment_less"> M</input></ul>
@@ -122,7 +122,7 @@
 
     <div class="manydiv">
       <label>Profit Split:  </label>
-        <ul><label for="profit_split_greater"> Greater than $</label>
+        <ul><label for="profit_split_greater"> Greater than $</label><br>
         <input type="number" id="profit_split_greater" ng-model="data.profit_split_greater"> %</input></ul>
         <ul><label for="profit_split_less"> Less than $</label><br>
         <input type="number" id="profit_split_less" ng-model="data.profit_split_less"> %</input></ul>
@@ -132,7 +132,7 @@
 
 
   <div class="onediv" >
-    <h4> Therapeutic Area :</h4>
+    <h4> Therapeutic Area : OR group</h4>
       <div class="manydiv2">
       <label>Allergic:  </label>
         <select multiple id="alliance_allergic" class="alliance_allergics" ng-model="data.select_alliance_allergic" ng-options="t as t for t in input.alliance_allergic"></select>
@@ -247,10 +247,10 @@
   </div>
 
   <div class="onediv">
-    <h4>Licensed Territory: not yet</h4>
+    <h4>Licensed Territory: OR group</h4>
 
       <div>
-        <input type="radio" id="btnshow" name="region" value="worldwide" > Worldwide </input>
+        <input type="radio" id="btnshow" name="region" value="worldwide" ng-model="data.select_alliance_worldwide" > Worldwide </input>
         <input type="radio" id="btnhide" name="region" value="reginal" > Regional Territory</input>
       </div>
       <div id="regional_show">

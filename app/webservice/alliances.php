@@ -16,7 +16,6 @@ $ssssss = [
 
 $Therapeutic_array=array(
 
-
 	array("select_alliance_allergic",5,"Allergic"),
 	array("select_alliance_autoimmune",7,"Autoimmune"),
 	array("select_alliance_bone",5,"Bone Disease"),
@@ -40,9 +39,19 @@ $Therapeutic_array=array(
 	array("select_alliance_trans",5,"Transplantation"),
 	array("select_alliance_other",8,"Other/Miscellaneous")
 
+);
 
+$Territory_array=array(
+
+	array("select_alliance_asia",8,"Asia"),
+	array("select_alliance_africa",6,"Africa"),
+	array("select_alliance_europe",10,"Europe"),
+	array("select_alliance_mideast",5,"Mideast"),
+	array("select_alliance_northamerica",4,"NAFTA"),
+	array("select_alliance_southamerica",5,"South America")
 
 );
+
 
 if (!empty($_GET)) {
 	mysql_connect('140.113.117.125','root','root');
@@ -51,25 +60,25 @@ if (!empty($_GET)) {
 	mysql_set_charset('utf8');
 
 	$has_where = false;
-	$query = "SELECT * FROM alliance ";
+	$query = "SELECT * FROM `alliance` ";
 
 	if ($_GET['agreement_from'] != null && $_GET['agreement_to'] != null) {
 		$_GET['agreement_from'] = explode("(", $_GET['agreement_from'])[0];
 		$_GET['agreement_to'] = explode("(", $_GET['agreement_to'])[0];
 		$from = date('Y-m-d', strtotime($_GET['agreement_from']));
 		$to = date('Y-m-d', strtotime($_GET['agreement_to']));
-		$query = ($has_where == false ? $query."WHERE Date BETWEEN '$from' AND '$to' " : $query."AND Date BETWEEN '$from' AND '$to' ");
+		$query = ($has_where == false ? $query."WHERE  `Date` BETWEEN '$from' AND '$to' " : $query."AND Date BETWEEN '$from' AND '$to'  ");
 		$has_where = true;
 	}
 
 	if ($_GET['deal_size_greater'] != null && $_GET['deal_size_less'] != null) {
 		$greater = $_GET['deal_size_greater'];
 		$less = $_GET['deal_size_less'];
-		$query = ($has_where == false ? $query."WHERE Size BETWEEN $greater AND $less " : $query."AND Size BETWEEN $greater AND $less ");
+		$query = ($has_where == false ? $query."WHERE `Size` BETWEEN $greater AND $less " : $query."AND Size BETWEEN $greater AND $less ");
 		$has_where = true;
 	} else if ($_GET['deal_size_greater'] != null) {
 		$greater = $_GET['deal_size_greater'];
-		$query = ($has_where == false ? $query."WHERE Size > $greater " : $query."AND Size > $greater ");
+		$query = ($has_where == false ? $query."WHERE `Size` > $greater " : $query."AND Size > $greater ");
 		$has_where = true;
 	} else if ($_GET['deal_size_less'] != null) {
 		$less = $_GET['deal_size_less'];
@@ -236,17 +245,18 @@ if (!empty($_GET)) {
 		$query = $query.') ';
 	}
 
-    if ($_GET['select_alliance_exclusiv'] != null && count($_GET['select_alliance_exclusiv']) > 0) {
-    $exclusiv = $_GET['select_alliance_exclusiv'];
-    $value = array_shift($exclusiv);
-    $query = ($has_where == false ? $query."WHERE ( `Exclusivity` LIKE '$value' " : $query."AND ( `Exclusivity` LIKE '$value'");
-    $has_where = true;
+    if ($_GET['select_alliance_exclusiv'] != null && count($_GET['select_alliance_exclusiv']) > 0) 
+    {
+	    $exclusiv = $_GET['select_alliance_exclusiv'];
+	    $value = array_shift($exclusiv);
+	    $query = ($has_where == false ? $query."WHERE ( `Exclusivity` LIKE '$value' " : $query."AND ( `Exclusivity` LIKE '$value'");
+	    $has_where = true;
 
-    foreach($exclusiv as $value) {
-      $query = $query." OR `Exclusivity` LIKE '$value'";
-    }
-    $query = $query.') ';
-  }
+	    foreach($exclusiv as $value) {
+	      $query = $query." OR `Exclusivity` LIKE '$value'";
+	    }
+	    $query = $query.') ';
+  	}
 
 	// alliance_subject
 	if ($_GET['alliance_subject'] != null ) {
@@ -269,46 +279,126 @@ if (!empty($_GET)) {
 
 
  //Therapeutic part
-  for ($i = 0, $num_ = count($Therapeutic_array); $i < $num_; $i++)
-  {
-    //Bone Disease
-    if ($_GET[$Therapeutic_array[$i][0]] != null && count($_GET[$Therapeutic_array[$i][0]]) > 0) {
-      
-      $selectedvar = $_GET[$Therapeutic_array[$i][1]];
-      $count_temp=count($selectedvar);
-      $disease_var=$Therapeutic_array[$i][2];
+  	$Therapeutic_has=flase;
+	for ($i = 0, $num_ = count($Therapeutic_array); $i < $num_; $i++)
+  	{
+  		if ($_GET[$Therapeutic_array[$i][0]] != null && count($_GET[$Therapeutic_array[$i][0]]) > 0) 
+  		{
+	      $selectedvar = $_GET[$Therapeutic_array[$i][0]];
+	      $count_temp=count($selectedvar);
+	      $disease_var=$Therapeutic_array[$i][2];
 
-      if($count_temp==$Tvalue){
-        $query = ($has_where == false ? $query."WHERE ( `Disease` LIKE '%$disease_var%' " : $query."AND ( `Disease` LIKE '%$disease_var%'");
-        $has_where = true;
-        $query = $query.') ';
-      }
-      else{
-        
-        $value = array_shift($selectedvar);
-        $query = ($has_where == false ? $query."WHERE ( `Condition` LIKE '%$value%' " : $query."AND ( `Condition` LIKE '%$value%'");
-        $has_where = true;
+	      if($count_temp==$Therapeutic_array[$i][1])
+	      {
 
-        foreach($selectedvar as $value) {
-          $query = $query." OR `Condition` LIKE '%$value%'";
-        }
-        $query = $query.') ';
-      }
-    }
-  }
+	      	if($has_where == false){
+	 			$query = ($query."WHERE ( `Disease` LIKE '%$disease_var%' ");
+	 		}
+	 		elseif ($Therapeutic_has == true) {
+	 			$query = ($query."OR ( `Disease` LIKE '%$disease_var%'" ) ;
+	 		}
+	 		else{
+	 			$query = ($query."AND ( `Disease` LIKE '%$disease_var%'" );
+	 		}
+	        // $query = (	        	($has_where == false) ? $query."WHERE ( `Disease` LIKE '%$disease_var%' " :	        	($Therapeutic_has == true) ? $query."OR ( `Disease` LIKE '%$disease_var%'" :        	 $query."AND ( `Disease` LIKE '%$disease_var%'" );
+	       	$Therapeutic_has=true;
+	        $has_where = true;
+	        $query = $query.') ';
+	      }
+	      else
+	      {
 
-///////////// above is  Therapeutic_array
+	        
+	        $value = array_shift($selectedvar);
+
+	 		if($has_where == false){
+	 			$query = ($query."WHERE ( `Condition` LIKE '%$value%' ");
+	 		}
+	 		elseif ($Therapeutic_has == true) {
+	 			$query = ($query."OR ( `Condition` LIKE '%$value%'" ) ;
+	 		}
+	 		else{
+	 			$query = ($query."AND ( `Condition` LIKE '%$value%'" );
+	 		}
+
+	        // $query = (	        	($has_where == false) ? $query."WHERE ( `Condition` LIKE '%$value%' " :	        	($Therapeutic_has == true) ? $query."OR ( `Condition` LIKE '%$value%'" :	        	$query."AND ( `Condition` LIKE '%$value%'" );
+	        $has_where = true;
+	        $Therapeutic_has=true;
+
+	        foreach($selectedvar as $value) 
+	        {
+	          $query = $query." OR `Condition` LIKE '%$value%'";
+	        }
+	        $query = $query.') ';
+	      }
+    	}
+  	}
+
+	//Territory  part
+	$Territory_has=false;
+	for ($i = 0, $num_ = count($Territory_array); $i < $num_; $i++)
+	{
+	    if ($_GET[$Territory_array[$i][0]] != null && count($_GET[$Territory_array[$i][0]]) > 0) 
+		{
+	      $selectedvar = $_GET[$Territory_array[$i][0]];
+	      $count_temp = count($selectedvar);
+	      $value = $Territory_array[$i][2];
+
+	      if($count_temp==$Territory_array[$i][1])//In "(Any) Asia countries" 
+	      { 
+	      	if($has_where == false){
+	 			$query = ($query."WHERE ( `License Region` LIKE '%$value%'");
+	 		}
+	 		elseif ($Territory_has == true) {
+	 			$query = ($query."OR ( `License Region` LIKE '%$value%'") ;
+	 		}
+	 		else{
+	 			$query = ($query."AND ( `License Region` LIKE '%$value%'");
+	 		}
+
+	        // $query = ($has_where == false ? $query."WHERE ( `License Region` LIKE '%$disease_var%' " : $query."AND ( `License Region` LIKE '%$disease_var%'");
+	        $has_where = true;
+	        $Territory_has=true;
+	        $query = $query.') ';
+	      }
+	      else
+	      {
+	        
+	        $value = array_shift($selectedvar);
+	        if($has_where == false){
+	 			$query = ($query."WHERE ( `License Country` LIKE '%$value%'");
+	 		}
+	 		elseif ($Territory_has == true) {
+	 			$query = ($query."OR ( `License Country` LIKE '%$value%'" ) ;
+	 		}
+	 		else{
+	 			$query = ($query."AND ( `License Country` LIKE '%$value%'" );
+	 		}
 
 
+	        // $query = ($has_where == false ? $query."WHERE ( `License Country` LIKE '%$value%' " : $query."AND ( `License Country` LIKE '%$value%'");
+	        $has_where = true;
+	        $Territory_has=true;
+	        
+	        foreach($selectedvar as $value) 
+	        {
+	          $query = ($query." OR `License Country` LIKE '%$value%'");
+	        }
+	        $query = $query.') ';
+	      }
+	    }
+	}
 
+	if ($_GET['select_alliance_worldwide'] != null && count($_GET['select_alliance_worldwide']) > 0) 
+    {
+	    $value = $_GET['select_alliance_worldwide'];
+	    $query = ($has_where == false ? $query."WHERE ( `License Region` LIKE '$value' " : $query."AND ( `License Region` LIKE '$value'");
+	    $has_where = true;
+	    $query = $query.') ';
+  	}
 
-  //Region part
-
-
-  
-
-	//$query = $query."LIMIT 10";
-
+		//$query = $query."LIMIT 10";
+  	// echo $query;
 	$result = mysql_query($query) or die('MySQL query error');
 	$is_first = true;
 	$rows = array();
@@ -321,7 +411,7 @@ if (!empty($_GET)) {
 
 
 
-}
+	}
 
 
 

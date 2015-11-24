@@ -13,7 +13,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
 
 	$scope.input = {
-		alliance_types_full: ["Acquisition","Asset Purchase","Assignment","Co-Development","Co-Market","Co-Promotion","Collaboration","Cross-license","Development","Distribution","Equity","Joint Venture","Letter of Intent","License","Loan","Manufacturing","Marketing","Merger","Option","Research","Security","Settlement","Sublicense","Supply","Termination","Warrant"],
+		
 		alliance_types: {
 			Acq: "Acquisition",
 			Ast: "Asset Purchase",
@@ -72,13 +72,15 @@ angular.module('myApp.view2', ['ngRoute'])
 		alliance_trans: ["Broad Focus Transplantation","Stem Cell/Bone Marrow","Graft-versus-Host Disease","Organ/Tissue Transplants","Other Transplantation"],
 		alliance_other: ["Agriculture","Animal Health","Cosmetics","Industrial Chemicals","Nutritionals/Vitamins","Orthopedics","OTC Products","Other Other/Miscellaneous"],
 
-		alliance_asia: ["(Any) Asian Territory","Australia","China","India","Japan","New Zealand","Southeast Asia","Other Asian"],
-		alliance_africa: ["(Any) African Territory","All African Countries","Algeria","Egypt"  ,"South Africa" ,"Other African"],
-		alliance_europe: ["(Any) European Territory","Eastern Europe","European Union","France","Germany","Russia","Scandinavia","Spain","United Kingdom","Other European"],
-		alliance_mideast: ["(Any) Mideast Territory","Israel","Saudi Arabia","Turkey","Other Middle Eastern"],
 
-		alliance_northamerica: ["(Any) North American Territory","Canada","Mexico","US"],
-		alliance_southamerica: ["(Any) South American Territory","Argentina","Brazil","Chile","Other South American"],
+		alliance_asia: ["All Asian Countries","Australia","China","India","Japan","New Zealand","Southeast Asia","Other Asian"],
+		alliance_africa: ["All African Countries","Algeria","Egypt"  ,"South Africa" ,"Other African"],
+		alliance_europe: ["All European Countries","Eastern Europe","European Union","France","Germany","Russia","Scandinavia","Spain","United Kingdom","Other European"],
+		alliance_mideast: ["All Mideast Countries","Israel","Saudi Arabia","Turkey","Other Middle Eastern"],
+		alliance_northamerica: ["All North American Countries","Canada","Mexico","US"],
+		alliance_southamerica: ["All South American Countries","Argentina","Brazil","Chile","Other South American"],
+
+
 		alliance_disclosure: ["Full","Partial","None"],
 		alliance_exclusiv: ["Exclusive","Semi-exclusive","Non-exclusive"]
 
@@ -113,6 +115,7 @@ angular.module('myApp.view2', ['ngRoute'])
 		select_alliance_trans: '',
 		select_alliance_other: '',
 
+		select_alliance_worldwide:'',
 		select_alliance_asia:'',
 		select_alliance_africa:'',
 		select_alliance_europe:'',
@@ -244,12 +247,12 @@ angular.module('myApp.view2', ['ngRoute'])
 		$('.alliance_others').SumoSelect({selectAll: true, selectAlltext: 'Other/Miscellaneous (All)'});
 
 
-		$('.alliance_asia').SumoSelect({selectAll: true, selectAlltext: 'All Asian Countries'});
-		$('.alliance_africa').SumoSelect({selectAll: true, selectAlltext: 'All African Countries'});
-		$('.alliance_europe').SumoSelect({selectAll: true, selectAlltext: 'All European Countries'});
-		$('.alliance_mideast').SumoSelect({selectAll: true, selectAlltext: 'All Mideast Countries'});
-		$('.alliance_northamerica').SumoSelect({selectAll: true, selectAlltext: '"All North American Countries"'});
-		$('.alliance_southamerica').SumoSelect({selectAll: true, selectAlltext: 'All South American Countries'});
+		$('.alliance_asia').SumoSelect({selectAll: true, selectAlltext: '(Any) Asian Country'});
+		$('.alliance_africa').SumoSelect({selectAll: true, selectAlltext: '(Any) African Country'});
+		$('.alliance_europe').SumoSelect({selectAll: true, selectAlltext: '(Any) European Country'});
+		$('.alliance_mideast').SumoSelect({selectAll: true, selectAlltext: '(Any) Mideast Country'});
+		$('.alliance_northamerica').SumoSelect({selectAll: true, selectAlltext: '"(Any) North American Country"'});
+		$('.alliance_southamerica').SumoSelect({selectAll: true, selectAlltext: '(Any) South American Country'});
 
 
 		$('.alliance_disclosure').SumoSelect();
